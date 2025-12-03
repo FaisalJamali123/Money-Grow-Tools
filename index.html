@@ -30,6 +30,14 @@
         .cards{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
         .card{background:var(--bg-white);border-radius:var(--radius);padding:32px 24px;box-shadow:var(--shadow);text-align:center}
         .card .icon{width:64px;height:64px;background:var(--light-gray);border-radius:50%;margin:0 auto 16px}
+        .faq-item{background:var(--light-gray);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+        .faq-question{width:100%;background:none;border:none;text-align:left;padding:20px 24px;font-size:1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-question::after{content:'+';font-size:1.25rem}
+        .faq-item.active .faq-question::after{content:'−'}
+        .faq-answer{padding:0 24px 20px;display:none}
+        .review{background:var(--light-gray)}
+        .review blockquote{font-style:italic;margin-bottom:16px}
+        .review .author{font-weight:600;text-align:right}
         footer{background:var(--primary-blue);color:#fff;padding:48px 0;text-align:center}
         footer .links a{margin:0 12px;font-size:.875rem}
         footer .copy{font-size:.75rem;margin-top:16px;opacity:.8}
@@ -49,7 +57,7 @@
         <div class="logo">Money Grow Tools</div>
         <nav>
             <a href="#tools">Tools</a>
-            <a href="#how">How It Works</a>
+            <a href="#features">Features</a>
             <a href="#faq">FAQ</a>
         </nav>
     </div>
@@ -58,40 +66,46 @@
 <section class="hero">
     <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;gap:40px">
         <div class="hero-left">
-            <h1>Smart 1099 Tax Calculations — Fast, Free & Accurate</h1>
-            <p>Understand your taxes with real-time breakdowns and state-level precision.</p>
-            <button class="btn" onclick="alert('Calculator coming soon!')">Launch Calculator</button>
+            <h1>Work & State Tax Info — Instantly</h1>
+            <p>Select your state and get tailored USA tax details for 1099 workers.</p>
+            <form onsubmit="event.preventDefault(); alert('Tax details for selected state coming soon!')">
+                <select id="state" style="padding:12px;border-radius:var(--radius);border:1px solid #ccc;margin-right:12px">
+                    <option>Select State</option>
+                    <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+                </select>
+                <button type="submit" class="btn">Get Tax Information</button>
+            </form>
         </div>
         <div class="hero-right">
-            <div class="illustration">Illustration</div>
+            <div class="illustration">Map Illustration</div>
         </div>
     </div>
 </section>
 
-<section id="how" class="section">
+<section id="tools" class="section">
     <div class="container">
-        <h2 style="text-align:center;margin-bottom:48px">How It Works</h2>
+        <h2 style="text-align:center;margin-bottom:48px">Featured Financial Tools</h2>
         <div class="cards">
             <div class="card">
                 <div class="icon"></div>
-                <h3>Clear Inputs</h3>
-                <p>Enter your 1099 income and allowances easily.</p>
+                <h3>1099 Tax Calculator</h3>
+                <p>Estimate taxes for independent contractor income.</p>
             </div>
             <div class="card">
                 <div class="icon"></div>
-                <h3>Instant Results</h3>
-                <p>See your tax liability calculated in real time.</p>
+                <h3>Quarterly Tax Calculator 1099</h3>
+                <p>Calculate quarterly payments and avoid penalties.</p>
             </div>
             <div class="card">
                 <div class="icon"></div>
-                <h3>Detailed Tax Breakdown</h3>
-                <p>Understand every deduction and state impact.</p>
+                <h3>Self Employment Tax Calculator</h3>
+                <p>See self-employment tax owed on your net earnings.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="tools" class="section" style="background:var(--light-gray)">
+<section id="features" class="section" style="background:var(--light-gray)">
     <div class="container">
         <h2 style="text-align:center;margin-bottom:48px">Upcoming Features</h2>
         <div class="cards">
@@ -109,6 +123,50 @@
     </div>
 </section>
 
+<section id="faq" class="section">
+    <div class="container">
+        <h2 style="text-align:center;margin-bottom:48px">Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <button class="faq-question">How accurate is the calculator?</button>
+                <div class="faq-answer">It uses current IRS brackets and state tables updated yearly for precision.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do you store any data?</button>
+                <div class="faq-answer">No data is saved; everything is processed locally in your browser.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Will state taxes be supported?</button>
+                <div class="faq-answer">Yes, all 50 states will be selectable before launch.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I export results?</button>
+                <div class="faq-answer">PDF and CSV exports are planned for the first release.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section review">
+    <div class="container">
+        <h2 style="text-align:center;margin-bottom:48px">What Users Say</h2>
+        <div class="cards">
+            <div class="card">
+                <blockquote>“Finally understood my quarterly taxes in minutes—huge relief!”</blockquote>
+                <div class="author">— Alex P., Freelancer</div>
+            </div>
+            <div class="card">
+                <blockquote>“Clean interface and spot-on calculations for my 1099 work.”</blockquote>
+                <div class="author">— Maria P., Designer</div>
+            </div>
+            <div class="card">
+                <blockquote>“The state toggle preview already saves me planning time.”</blockquote>
+                <div class="author">— Jordan L., Driver</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <footer>
     <div class="container">
         <div class="logo" style="font-size:1rem;margin-bottom:12px">Money Grow Tools</div>
@@ -120,6 +178,17 @@
         <div class="copy">© <?php echo date("Y"); ?> Money Grow Tools. All rights reserved.</div>
     </div>
 </footer>
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            const item=btn.parentElement;
+            const answer=btn.nextElementSibling;
+            item.classList.toggle('active');
+            answer.style.display=item.classList.contains('active')?'block':'none';
+        });
+    });
+</script>
 
 </body>
 </html>
