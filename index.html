@@ -256,7 +256,46 @@
 
                             <ul id="stateList" class="state-list" aria-label="State suggestions"></ul>
 
-                            <button class="btn-check" onclick="applyState()">Check Tax Rate</button>
+                            <button class="btn-check" onclick="<script>
+function applyState() {
+    const state = document.getElementById("stateInput").value.trim();
+    const resultBox = document.getElementById("taxResult");
+
+    if (!stateTaxRates.hasOwnProperty(state)) {
+        resultBox.classList.remove("hidden");
+        resultBox.classList.remove("bg-blue-50");
+        resultBox.classList.add("bg-red-50");
+        resultBox.innerHTML = `
+            <strong class="text-red-600">Invalid State</strong><br>
+            Please select a valid U.S. state from the list.
+        `;
+        return;
+    }
+
+    const stateRate = stateTaxRates[state];
+    const seTax = 0.153; // 15.3%
+    const totalTax = (stateRate + seTax) * 100;
+
+    resultBox.classList.remove("hidden", "bg-red-50");
+    resultBox.classList.add("bg-blue-50");
+
+    resultBox.innerHTML = `
+        <div class="space-y-1">
+            <p><strong>📍 State:</strong> ${state}</p>
+            <p><strong>State Income Tax:</strong> ${(stateRate * 100).toFixed(2)}%</p>
+            <p><strong>Self-Employment Tax:</strong> 15.30%</p>
+            <hr class="my-2">
+            <p class="font-semibold text-blue-700">
+                Total Estimated 1099 Tax: ${totalTax.toFixed(2)}%
+            </p>
+        </div>
+    `;
+}
+</script>
+">Check Tax Rate</button>
+                            <div id="taxResult" class="mt-4 hidden rounded-lg bg-blue-50 p-4 text-sm text-gray-800">
+    <!-- Result will appear here -->
+</div>
                         </div>
                     </div>
                 </div>
