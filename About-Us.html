@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Money Grow Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">Money Grow Tools</span>
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.php" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about.php" class="text-blue-600 font-semibold">About</a>
+                    <a href="contact.php" class="text-gray-600 hover:text-blue-600 font-medium">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-4 scroll-reveal">About Money Grow Tools</h1>
+            <p class="text-xl text-white/80 max-w-2xl mx-auto scroll-reveal">
+                We help freelancers, gig workers, and creators make smarter financial decisions with fast, accurate, and free tools.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="scroll-reveal">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Mission</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        The financial world is complicated — especially for freelancers and independent workers. 
+                        Our mission is to make financial planning simple, fast, and accessible for everyone.
+                    </p>
+                    <p class="text-lg text-gray-600 mt-4">
+                        Whether you’re calculating 1099 taxes, planning investments, or managing quarterly payments, 
+                        our tools help you stay in control without stress or confusion.
+                    </p>
+                </div>
+
+                <div class="scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=900&q=60" 
+                         class="rounded-2xl shadow-xl" alt="Team working">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Provide -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">What We Provide</h2>
+                <p class="text-xl text-gray-600">Simple, fast, and powerful tools designed for modern workers</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow scroll-reveal">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-calculator text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Smart Calculators</h3>
+                    <p class="text-gray-600">1099 tax, quarterly tax, self-employment tax and more — all instantly accessible.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow scroll-reveal">
+                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Financial Insights</h3>
+                    <p class="text-gray-600">Guides, tips, and blog articles written to help you understand money better.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow scroll-reveal">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">No Signup, No Data Stored</h3>
+                    <p class="text-gray-600">Your privacy matters. We do not store your data — all tools run directly in your browser.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Meet the Team</h2>
+                <p class="text-xl text-gray-600">Passionate people building tools that make money simple</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow p-8 text-center scroll-reveal">
+                    <i class="fas fa-user-circle text-blue-600 text-6xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Founder</h3>
+                    <p class="text-gray-600 mt-2">Creates the financial logic, tools, and calculators.</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow p-8 text-center scroll-reveal">
+                    <i class="fas fa-code text-green-600 text-6xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Lead Developer</h3>
+                    <p class="text-gray-600 mt-2">Builds the web interface, animations, and tool functionality.</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow p-8 text-center scroll-reveal">
+                    <i class="fas fa-pencil-alt text-purple-600 text-6xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Content Writer</h3>
+                    <p class="text-gray-600 mt-2">Writes blogs, guides, and tips for financial education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-900 text-gray-300 text-center">
+        <p>© 2025 Money Grow Tools — All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll reveal effect
+        const elements = document.querySelectorAll('.scroll-reveal');
+        const reveal = () => {
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    el.classList.add('revealed');
+                }
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
+
+</body>
+</html>
