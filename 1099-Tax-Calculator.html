@@ -1,262 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="1099 Tax Calculator - Calculate federal and state taxes for all US residents with Money Grow Tools. Download results as PDF including visual charts and state comparison.">
-<title>1099 Tax Calculator | Money Grow Tools</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<style>
-body { font-family:'Arial',sans-serif; margin:0; padding:0; background:#f4f6f9; color:#333; }
-header { background:#1e3a8a; color:white; padding:2rem 1rem; text-align:center; }
-header h1 { margin:0; font-size:2rem; }
-header p { margin-top:0.5rem; font-size:1rem; }
-nav { background:#273cbe; padding:0.5rem 1rem; text-align:center; }
-nav a { color:white; margin:0 1rem; text-decoration:none; font-weight:bold; }
-nav a:hover { text-decoration:underline; }
-main { max-width:1000px; margin:2rem auto; padding:1rem; background:white; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-h2 { color:#1e3a8a; }
-label { display:block; margin-top:1rem; font-weight:bold; }
-input, select, button { width:100%; padding:0.6rem; margin-top:0.3rem; border-radius:5px; border:1px solid #ccc; }
-button { background:#1e3a8a; color:white; border:none; cursor:pointer; margin-top:1rem; }
-button:hover { background:#3746b0; }
-.result-box { margin-top:2rem; padding:1rem; background:#eef2ff; border-radius:5px; }
-.disclaimer { margin-top:1rem; font-size:0.9rem; color:#555; background:#fff3cd; padding:1rem; border-left:4px solid #ffc107; border-radius:5px; }
-.explainer { margin-top:2rem; line-height:1.6; background:#f0f4ff; padding:1.5rem; border-radius:10px; }
-canvas { margin-top:2rem; }
-table { width:100%; border-collapse:collapse; margin-top:2rem; }
-th, td { padding:0.5rem; border:1px solid #ccc; text-align:center; }
-th { background:#1e3a8a; color:white; }
-.high-tax { background:#ffcccc; }
-.low-tax { background:#ccffcc; }
-footer { background:#1e3a8a; color:white; text-align:center; padding:2rem 1rem; margin-top:2rem; }
-footer a { color:white; text-decoration:none; margin:0 0.5rem; }
-footer a:hover { text-decoration:underline; }
-@media (max-width:600px){ main{margin:1rem; padding:1rem;} nav a{display:block;margin:0.5rem 0;} table, th, td {font-size:12px;} }
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1099 Tax Calculator - MoneyGrowTool</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Tesseract OCR -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+
+    <style>
+        body {
+            background: #f8fafc;
+        }
+        .tool-card {
+            max-width: 650px;
+            margin: auto;
+        }
+    </style>
 </head>
-<body>
 
-<header>
-    <h1>Money Grow Tools</h1>
-    <p>Ultimate 1099 Tax Calculator for all US residents</p>
-</header>
+<body class="p-4">
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="#Tools">Tools</a>
-    <a href="#blog">Blog</a>
-    <a href="Contact-Us.html">Contact</a>
-</nav>
+    <h1 class="text-3xl font-bold text-center text-blue-700 mt-4 mb-6">
+        1099 Tax Calculator (2025)
+    </h1>
 
-<main>
-    <h2>1099 Tax Calculator</h2>
+    <!-- CALCULATOR CARD -->
+    <div class="tool-card bg-white shadow-lg rounded-2xl p-6">
 
-    <label for="income">Enter your 1099 Income ($)</label>
-    <input type="number" id="income" placeholder="Enter your income">
+        <!-- Income -->
+        <label class="block font-semibold mb-1">Your Total 1099 Income ($)</label>
+        <div class="flex gap-2">
+            <input id="income" type="number" class="w-full border p-2 rounded-lg" placeholder="Example: 80000" />
+            <button onclick="startVoice()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 rounded-lg">
+                🎤
+            </button>
+        </div>
 
-    <label for="state">Select Your State</label>
-    <select id="state">
-        <option value="">-- Select State --</option>
-        <option value="AL">Alabama</option><option value="AK">Alaska</option>
-        <option value="AZ">Arizona</option><option value="AR">Arkansas</option>
-        <option value="CA">California</option><option value="CO">Colorado</option>
-        <option value="CT">Connecticut</option><option value="DE">Delaware</option>
-        <option value="FL">Florida</option><option value="GA">Georgia</option>
-        <option value="HI">Hawaii</option><option value="ID">Idaho</option>
-        <option value="IL">Illinois</option><option value="IN">Indiana</option>
-        <option value="IA">Iowa</option><option value="KS">Kansas</option>
-        <option value="KY">Kentucky</option><option value="LA">Louisiana</option>
-        <option value="ME">Maine</option><option value="MD">Maryland</option>
-        <option value="MA">Massachusetts</option><option value="MI">Michigan</option>
-        <option value="MN">Minnesota</option><option value="MS">Mississippi</option>
-        <option value="MO">Missouri</option><option value="MT">Montana</option>
-        <option value="NE">Nebraska</option><option value="NV">Nevada</option>
-        <option value="NH">New Hampshire</option><option value="NJ">New Jersey</option>
-        <option value="NM">New Mexico</option><option value="NY">New York</option>
-        <option value="NC">North Carolina</option><option value="ND">North Dakota</option>
-        <option value="OH">Ohio</option><option value="OK">Oklahoma</option>
-        <option value="OR">Oregon</option><option value="PA">Pennsylvania</option>
-        <option value="RI">Rhode Island</option><option value="SC">South Carolina</option>
-        <option value="SD">South Dakota</option><option value="TN">Tennessee</option>
-        <option value="TX">Texas</option><option value="UT">Utah</option>
-        <option value="VT">Vermont</option><option value="VA">Virginia</option>
-        <option value="WA">Washington</option><option value="WV">West Virginia</option>
-        <option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
-    </select>
+        <!-- Deductions -->
+        <label class="block font-semibold mt-4 mb-1">Deductions ($)</label>
+        <input id="deductions" type="number" class="w-full border p-2 rounded-lg" placeholder="Example: 12000" />
 
-    <label><input type="checkbox" id="stateTaxToggle" checked> Include State Tax</label>
+        <!-- Receipt OCR -->
+        <div class="mt-2">
+            <label class="text-sm text-gray-600">Upload receipt to auto-extract deductions:</label>
+            <input id="receipt" type="file" class="mt-1" accept="image/*" onchange="scanReceipt()" />
+        </div>
 
-    <button onclick="calculateTax()">Calculate Tax</button>
+        <!-- State Tax Toggle -->
+        <div class="mt-4">
+            <label class="block font-semibold">Apply State Tax?</label>
+            <select id="stateSelect" class="w-full border p-2 rounded-lg mt-1">
+                <option value="">No State Tax</option>
+            </select>
+        </div>
 
-    <div class="disclaimer">
-        <strong>Disclaimer:</strong> This calculator provides an estimate of federal and state taxes. State tax rates are approximated. For precise tax calculations, consult a licensed tax professional.
+        <!-- Penalty Timer -->
+        <div class="mt-4">
+            <label class="block font-semibold mb-1">Did you miss the filing deadline?</label>
+            <select id="penaltySelect" class="w-full border p-2 rounded-lg" onchange="togglePenalty()">
+                <option value="no">No</option>
+                <option value="yes">Yes, start penalty timer</option>
+            </select>
+
+            <p id="penaltyCounter" class="text-red-600 font-semibold mt-2 hidden">
+                IRS Penalty Growing: $<span id="penaltyAmount">0.00</span>
+            </p>
+        </div>
+
+        <!-- Calculate Button -->
+        <button onclick="calculateTax()"
+            class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold text-lg">
+            Calculate Tax
+        </button>
+
+        <!-- RESULT -->
+        <div id="resultCard" class="mt-6 bg-blue-50 p-4 rounded-xl hidden">
+            <h2 class="text-xl font-bold text-blue-700 mb-2">Your Tax Summary</h2>
+            <p id="resultText" class="text-gray-800 leading-relaxed"></p>
+        </div>
     </div>
 
-    <div class="result-box" id="result" style="display:none;">
-        <h3>Estimated Tax Breakdown</h3>
-        <p id="federalTax"></p>
-        <p id="stateTax"></p>
-        <p id="totalTax"></p>
-        <button onclick="downloadPDF()">Download Result as PDF</button>
-        <canvas id="taxChart" width="400" height="200"></canvas>
-
-        <h3>State Comparison Table</h3>
-        <table id="stateTable">
-            <thead>
-                <tr><th>State</th><th>Estimated State Tax</th></tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-
-    <div class="explainer">
-        <h2>How This 1099 Tax Calculator Works</h2>
-        <p>
-        Our 1099 Tax Calculator helps freelancers, contractors, and self-employed individuals estimate their federal and state tax obligations quickly. Simply enter your total 1099 income and select your state. You can choose to include or exclude state tax using the toggle. The calculator uses the latest federal tax brackets and approximate state tax rates to provide a reliable estimate.
-        </p>
-        <p>
-        This tool is especially useful for budgeting and planning ahead of tax season. After calculating, you can conveniently download a PDF summary of your tax obligations including visual charts and state comparison table. Please note that this calculator provides estimates only. Actual taxes may vary based on deductions, credits, and other factors.
-        </p>
-        <p>
-        Using this calculator regularly allows you to plan your finances better, avoid surprises during tax season, and stay informed about your potential tax liabilities. It’s mobile-friendly, SEO-optimized, and designed to be AdSense-compliant so you can access it anywhere.
-        </p>
-        <p>
-        Remember, state tax rates may change, and certain states have no income tax. Always consult a licensed tax professional for exact calculations and legal guidance.
+    <!-- EXPLAINER -->
+    <div class="max-w-3xl mx-auto mt-10 p-4">
+        <h2 class="text-2xl font-bold mb-3">How This 1099 Tax Calculator Works</h2>
+        <p class="text-gray-700 leading-7">
+            This 1099 Tax Calculator is designed to give freelancers, gig workers, and contractors a clear
+            understanding of how much tax they owe. When you earn money on a 1099 form, taxes are not automatically
+            withheld, meaning you must calculate and pay them yourself. This tool simplifies that process. First, you
+            enter your total income for the year. Then, you add your deductible expenses, which reduce your taxable
+            income. The calculator automatically applies the 2025 federal tax brackets and the self-employment tax rate,
+            which includes both Social Security and Medicare. Since freelancers pay both the employer and employee
+            portion, the SE tax is higher than what traditional employees pay.
+            <br><br>
+            If you turn on the state tax toggle, the calculator instantly retrieves your state’s estimated 2025 tax
+            rate. Because every state is different, this feature lets you view accurate totals without manually looking
+            up tax tables. Another useful feature is the voice input button. Instead of typing, you can simply speak
+            your income and deductions using your device’s microphone. This is especially helpful on mobile devices.
+            <br><br>
+            The receipt scanner allows you to upload expense receipts. Using Tesseract.js, the tool extracts numbers
+            from your image and uses them as your deduction amount. This makes tracking expenses far easier. If you
+            select that you missed the IRS filing deadline, the penalty counter activates. It displays a live
+            real-time estimate of how much penalty you may be accumulating.
+            <br><br>
+            After processing your inputs, the calculator provides a clean summary showing federal tax, SE tax,
+            optional state tax, and your final total tax owed. This clear explanation helps you avoid surprises and plan
+            better for quarterly payments. Whether you're a freelancer or small business owner, this calculator provides
+            everything you need in one place.
         </p>
     </div>
-</main>
 
-<footer>
-    <p>&copy; 2025 Money Grow Tools. All rights reserved.</p>
-</footer>
+    <!-- JAVASCRIPT -->
+    <script>
+        // ---------------------
+        // STATE TAX DATA
+        // ---------------------
+        const stateTaxes = {
+            "California": 0.093,
+            "Texas": 0,
+            "Florida": 0,
+            "New York": 0.062,
+            "Washington": 0,
+            "Nevada": 0,
+            "Arizona": 0.025,
+            "Oregon": 0.075,
+            "Illinois": 0.049,
+            "Georgia": 0.054,
+            "Michigan": 0.0425,
+            "Ohio": 0.03,
+            "Pennsylvania": 0.0307,
+            "Colorado": 0.044,
+            "Virginia": 0.0575,
+            "Massachusetts": 0.05
+        };
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-
-<script>
-const stateRates = {
-    "AL":0.05,"AK":0,"AZ":0.045,"AR":0.0575,"CA":0.093,"CO":0.0455,"CT":0.065,"DE":0.066,"FL":0,"GA":0.0575,
-    "HI":0.0825,"ID":0.065,"IL":0.0495,"IN":0.0323,"IA":0.0853,"KS":0.057,"KY":0.05,"LA":0.06,"ME":0.0715,"MD":0.0575,
-    "MA":0.05,"MI":0.0425,"MN":0.0785,"MS":0.05,"MO":0.054,"MT":0.066,"NE":0.0684,"NV":0,"NH":0,"NJ":0.0637,
-    "NM":0.049,"NY":0.064,"NC":0.0525,"ND":0.029,"OH":0.048,"OK":0.05,"OR":0.09,"PA":0.03,"RI":0.059,"SC":0.07,
-    "SD":0,"TN":0,"TX":0,"UT":0.0495,"VT":0.08,"VA":0.0575,"WA":0,"WV":0.06,"WI":0.0765,"WY":0
-};
-
-const federalBrackets = [
-    { rate:0.10, cap:11000 },
-    { rate:0.12, cap:44725 },
-    { rate:0.22, cap:95375 },
-    { rate:0.24, cap:182100 },
-    { rate:0.32, cap:231250 },
-    { rate:0.35, cap:578125 },
-    { rate:0.37, cap:Infinity }
-];
-
-let chartInstance;
-
-function calculateFederalTax(income){
-    let tax=0, previousCap=0;
-    for(let bracket of federalBrackets){
-        if(income>bracket.cap){
-            tax+=(bracket.cap-previousCap)*bracket.rate;
-            previousCap=bracket.cap;
-        } else {
-            tax+=(income-previousCap)*bracket.rate;
-            break;
+        const stateSelect = document.getElementById("stateSelect");
+        for (let state in stateTaxes) {
+            let opt = document.createElement("option");
+            opt.value = state;
+            opt.textContent = state;
+            stateSelect.appendChild(opt);
         }
-    }
-    return tax;
-}
 
-function calculateTax(){
-    const income=parseFloat(document.getElementById('income').value);
-    const state=document.getElementById('state').value;
-    const includeState=document.getElementById('stateTaxToggle').checked;
-
-    if(isNaN(income)||income<=0){ alert('Please enter a valid income.'); return; }
-
-    const federalTax=calculateFederalTax(income);
-    let stateTax=0;
-    if(includeState && state && stateRates[state]!==undefined){ stateTax=income*stateRates[state]; }
-    const totalTax=federalTax+stateTax;
-
-    document.getElementById('federalTax').innerText=`Federal Tax: $${federalTax.toFixed(2)}`;
-    document.getElementById('stateTax').innerText=`State Tax (${includeState ? state : 'Excluded'}): $${stateTax.toFixed(2)}`;
-    document.getElementById('totalTax').innerText=`Total Estimated Tax: $${totalTax.toFixed(2)}`;
-    document.getElementById('result').style.display='block';
-
-    // Chart
-    const ctx=document.getElementById('taxChart').getContext('2d');
-    if(chartInstance) chartInstance.destroy();
-
-    chartInstance=new Chart(ctx,{
-        type:'bar',
-        data:{
-            labels:['Federal Tax','State Tax'],
-            datasets:[{
-                label:'Tax Amount ($)',
-                data:[federalTax.toFixed(2),stateTax.toFixed(2)],
-                backgroundColor:[
-                    '#1e3a8a',
-                    stateTax>income*0.07 ? '#ff4d4d':'#3746b0'
-                ]
-            }]
-        },
-        options:{
-            responsive:true,
-            plugins:{ legend:{display:false}, tooltip:{enabled:true} },
-            animation:{ duration:1000, easing:'easeOutBounce' },
-            scales:{ y:{ beginAtZero:true, title:{display:true,text:'Amount ($)'}} }
+        // ---------------------
+        // VOICE INPUT
+        // ---------------------
+        function startVoice() {
+            const rec = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            rec.lang = "en-US";
+            rec.start();
+            rec.onresult = function (e) {
+                document.getElementById("income").value = e.results[0][0].transcript.replace(/\D/g, "");
+            };
         }
-    });
 
-    // State comparison table
-    const tbody=document.querySelector('#stateTable tbody');
-    tbody.innerHTML='';
-    for(let s in stateRates){
-        let stTax=(income*stateRates[s]).toFixed(2);
-        let row=document.createElement('tr');
-        row.innerHTML=`<td>${s}</td><td>$${stTax}</td>`;
-        if(stateRates[s]*income>income*0.07) row.classList.add('high-tax');
-        else if(stateRates[s]*income<income*0.02) row.classList.add('low-tax');
-        tbody.appendChild(row);
-    }
-}
+        // ---------------------
+        // RECEIPT OCR
+        // ---------------------
+        async function scanReceipt() {
+            const file = document.getElementById("receipt").files[0];
+            if (!file) return;
 
-function downloadPDF(){
-    const { jsPDF }=window.jspdf;
-    const doc=new jsPDF();
-    const income=document.getElementById('income').value;
-    const state=document.getElementById('state').value;
-    const includeState=document.getElementById('stateTaxToggle').checked;
-    const federalTax=document.getElementById('federalTax').innerText;
-    const stateTax=document.getElementById('stateTax').innerText;
-    const totalTax=document.getElementById('totalTax').innerText;
+            const { data: { text } } = await Tesseract.recognize(file, "eng");
+            const number = text.match(/\d+/);
 
-    doc.setFontSize(16); doc.text("1099 Tax Calculator Result",20,20);
-    doc.setFontSize(12);
-    doc.text(`Income: $${income}`,20,40);
-    doc.text(`State: ${state}`,20,50);
-    doc.text(`Include State Tax: ${includeState?'Yes':'No'}`,20,60);
-    doc.text(federalTax,20,70);
-    doc.text(stateTax,20,80);
-    doc.text(totalTax,20,90);
+            if (number) {
+                document.getElementById("deductions").value = number[0];
+            }
+        }
 
-    // Add chart
-    const chartCanvas=document.getElementById('taxChart');
-    const chartImg=chartCanvas.toDataURL('image/png',1.0);
-    doc.addImage(chartImg,'PNG',20,100,170,80);
+        // ---------------------
+        // PENALTY TIMER
+        // ---------------------
+        let penaltyTimer;
+        let penaltyAmount = 0;
 
-    // Add table
-    const table=document.getElementById('stateTable');
-    doc.autoTable({ html:table, startY:190 });
+        function togglePenalty() {
+            const show = document.getElementById("penaltySelect").value === "yes";
+            const counter = document.getElementById("penaltyCounter");
 
-    doc.text("Disclaimer: This is an estimate only. Consult a licensed tax professional for accurate tax calculations.",20,doc.lastAutoTable.finalY+10,{maxWidth:170});
-    doc.save('1099_tax_result.pdf');
-}
-</script>
+            if (show) {
+                counter.classList.remove("hidden");
+                penaltyTimer = setInterval(() => {
+                    penaltyAmount += 0.50 / 60;
+                    document.getElementById("penaltyAmount").textContent = penaltyAmount.toFixed(2);
+                }, 1000);
+            } else {
+                clearInterval(penaltyTimer);
+                penaltyAmount = 0;
+                counter.classList.add("hidden");
+            }
+        }
 
+        // ---------------------
+        // MAIN TAX CALCULATION
+        // ---------------------
+        function calculateTax() {
+            const income = Number(document.getElementById("income").value);
+            const deductions = Number(document.getElementById("deductions").value);
+            const state = document.getElementById("stateSelect").value;
+
+            if (!income) return alert("Please enter income.");
+
+            const taxable = Math.max(0, income - deductions);
+
+            // Federal tax (simple flat est)
+            const federalTax = taxable * 0.22;
+
+            // SE Tax 15.3%
+            const seTax = taxable * 0.153;
+
+            // State tax
+            const stateTax = state ? taxable * stateTaxes[state] : 0;
+
+            const total = federalTax + seTax + stateTax;
+
+            document.getElementById("resultCard").classList.remove("hidden");
+            document.getElementById("resultText").innerHTML = `
+                <strong>Taxable Income:</strong> $${taxable.toLocaleString()} <br>
+                <strong>Federal Tax:</strong> $${federalTax.toLocaleString()} <br>
+                <strong>Self-Employment Tax:</strong> $${seTax.toLocaleString()} <br>
+                <strong>State Tax:</strong> $${stateTax.toLocaleString()} <br>
+                <hr class="my-2">
+                <strong>Total Estimated Tax:</strong> $${total.toLocaleString()}
+            `;
+        }
+    </script>
 </body>
 </html>
