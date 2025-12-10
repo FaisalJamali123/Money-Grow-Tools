@@ -52,3 +52,25 @@
         </div>
     </div>
 </section>
+ <!-- Footer -->
+    <footer class="py-10 bg-gray-900 text-gray-300 text-center">
+        <p>© 2025 Money Grow Tools — All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll reveal effect
+        const elements = document.querySelectorAll('.scroll-reveal');
+        const reveal = () => {
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    el.classList.add('revealed');
+                }
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
+
+</body>
+</html>
