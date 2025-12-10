@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1099 Tax Calculator 2025 – Federal & State Self-Employment Tax Tool</title>
 
-    <!-- YOUR WEBSITE'S CSS (Tailwind) -->
-    <link rel="stylesheet" href="style.css">
+    <!-- TAILWIND CSS (Fixes all layout issues) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Icons -->
     <script src="https://kit.fontawesome.com/4f3e3b5b0f.js" crossorigin="anonymous"></script>
@@ -108,8 +108,9 @@
         <h2 class="text-3xl font-bold text-gray-800 mb-6">How This 1099 Tax Calculator Works</h2>
 
         <p class="text-gray-600 leading-relaxed mb-6">
-            This 1099 tax calculator is built for freelancers, Uber drivers, DoorDash couriers, creators and all U.S. gig workers. 
-            It uses updated IRS 2025 federal tax brackets, applies the 15.3% self-employment tax, and includes state-wise tax rates.
+            This 1099 tax calculator is built for freelancers, gig workers, Uber drivers, DoorDash couriers, 
+            creators and contractors. It uses the latest IRS 2025 tax brackets and includes state-wise tax 
+            rules along with self-employment tax (15.3%).
         </p>
 
         <div class="space-y-10">
@@ -117,25 +118,21 @@
             <div>
                 <h3 class="font-semibold text-xl text-gray-800 mb-2">1. Enter Your Income</h3>
                 <p class="text-gray-600">Add your total 1099 self-employment earnings.</p>
-                <img src="screenshot-income.png" class="rounded-lg shadow w-full mt-3">
             </div>
 
             <div>
                 <h3 class="font-semibold text-xl text-gray-800 mb-2">2. Add Deductions</h3>
-                <p class="text-gray-600">Enter your business expenses. OCR auto-reads receipts.</p>
-                <img src="screenshot-deductions.png" class="rounded-lg shadow w-full mt-3">
+                <p class="text-gray-600">Enter your business expenses. OCR will auto-read receipts if uploaded.</p>
             </div>
 
             <div>
                 <h3 class="font-semibold text-xl text-gray-800 mb-2">3. Select State</h3>
-                <p class="text-gray-600">State brackets are automatically applied.</p>
-                <img src="screenshot-state.png" class="rounded-lg shadow w-full mt-3">
+                <p class="text-gray-600">The calculator automatically applies your state tax bracket.</p>
             </div>
 
             <div>
-                <h3 class="font-semibold text-xl text-gray-800 mb-2">4. Get Your Tax Estimate</h3>
-                <p class="text-gray-600">Federal tax + SE tax + State tax calculated instantly.</p>
-                <img src="screenshot-results.png" class="rounded-lg shadow w-full mt-3">
+                <h3 class="font-semibold text-xl text-gray-800 mb-2">4. View Simple Tax Summary</h3>
+                <p class="text-gray-600">The tool instantly calculates Federal + State + Self-Employment Tax.</p>
             </div>
 
         </div>
@@ -146,7 +143,7 @@
     ============================ -->
     <section class="bg-blue-600 py-12 text-center text-white">
         <h2 class="text-3xl font-bold">Plan Better. Earn Smarter.</h2>
-        <p class="mt-3 text-lg">Use our smart financial tools to stay ahead on taxes and grow your income.</p>
+        <p class="mt-3 text-lg">Use our financial tools to manage taxes and grow your income.</p>
 
         <a href="index.html" class="mt-6 inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-lg">
             Back to Home
@@ -226,7 +223,7 @@
             });
         }
 
-        /* MAIN TAX CALCULATION */
+        /* MAIN CALCULATION */
         function calculateTax() {
             const income = Number(document.getElementById("income").value);
             const deductions = Number(document.getElementById("deductions").value);
