@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Employment Tax Calculator - Money Grow Tools</title>
+<meta name="description" content="Accurately calculate your self-employment tax (Social Security + Medicare) as a freelancer or gig worker. Plan quarterly payments and avoid IRS penalties.">
+<meta name="keywords" content="Self-Employment Tax, SE Tax Calculator, Social Security, Medicare, Freelance Tax, 1099 Tax, IRS, Tax Planning">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+* { font-family: 'Inter', sans-serif; margin:0; padding:0; box-sizing:border-box; }
+body { background: #f9fafb; color: #1f2937; }
+
+.scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+.scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+
+.calculator-card { transition: all 0.3s ease; }
+.calculator-card:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(0,0,0,0.08); }
+
+/* Infographic */
+.infographic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+.infographic-item {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.bg-social { background: linear-gradient(135deg, #4f46e5, #6366f1); animation: pulse 2s infinite; }
+.bg-medicare { background: linear-gradient(135deg, #10b981, #34d399); animation: float 3s infinite; }
+.infographic-item span { font-size: 1.2rem; }
+@keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.1);opacity:0.8;} }
+@keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);} }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center py-4">
+<div class="flex items-center space-x-2">
+<div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+<i class="fas fa-calculator text-white text-lg"></i>
+</div>
+<span class="text-xl font-bold text-gray-800">Money Grow Tools</span>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a href="index.html" class="text-gray-600 hover:text-purple-600 font-medium">Home</a>
+<a href="Quarterly-Tax-Calculator.html" class="text-gray-600 hover:text-purple-600 font-medium">Quarterly Tax</a>
+<a href="1099-Tax-Calculator.html" class="text-gray-600 hover:text-purple-600 font-medium">1099 Tax</a>
+<a href="Contact-Us.html" class="text-gray-600 hover:text-purple-600 font-medium">Contact</a>
+</nav>
+</div>
+</div>
+</header>
+
+<main class="pt-28">
+<section class="py-20">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<!-- Title -->
+<div class="text-center mb-12 scroll-reveal">
+<h1 class="text-4xl font-bold text-gray-800 mb-4">Self-Employment Tax Calculator</h1>
+<p class="text-xl text-gray-600 max-w-2xl mx-auto">
+Calculate your Social Security and Medicare taxes as a freelancer or gig worker. Avoid surprises at tax time and plan quarterly payments.
+</p>
+</div>
+
+<!-- Infographic -->
+<div class="infographic scroll-reveal">
+<div class="infographic-item bg-social">
+<span>Social Security</span>
+<span>12.4%</span>
+</div>
+<div class="infographic-item bg-medicare">
+<span>Medicare</span>
+<span>2.9%</span>
+</div>
+</div>
+
+<!-- Calculator Card -->
+<div class="bg-white rounded-xl shadow-lg p-8 calculator-card scroll-reveal">
+<h2 class="text-2xl font-semibold text-gray-800 mb-6">Estimate Your Self-Employment Tax</h2>
+<p class="text-gray-600 mb-6">
+Self-employment tax is <strong>15.3%</strong> of net earnings (12.4% Social Security + 2.9% Medicare). Plan ahead to avoid IRS penalties.
+</p>
+
+<label class="block text-gray-700 font-medium mb-2" for="incomeInput">Annual Self-Employment Income ($)</label>
+<input type="number" id="incomeInput" placeholder="e.g., 50000" class="w-full p-4 border border-gray-300 rounded-lg mb-4 text-gray-800">
+
+<label class="block text-gray-700 font-medium mb-2" for="deductionInput">Deductible Expenses ($) <span class="text-sm text-gray-500">(optional)</span></label>
+<input type="number" id="deductionInput" placeholder="e.g., 5000" class="w-full p-4 border border-gray-300 rounded-lg mb-6 text-gray-800">
+
+<button id="calculateSE" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors w-full mb-4">
+Calculate SE Tax
+</button>
+
+<div id="seResult" class="bg-purple-100 p-4 rounded-lg text-gray-800 hidden">
+<p class="font-semibold">Estimated Self-Employment Tax:</p>
+<p id="seTaxAmount" class="text-xl font-bold mt-2"></p>
+<p class="text-sm text-gray-600 mt-2">
+*This is an estimate. Actual tax may vary. Consult a tax professional for official filing.*
+</p>
+</div>
+</div>
+
+<!-- Explanation Section -->
+<div class="mt-12 text-gray-700 scroll-reveal">
+<h3 class="text-2xl font-semibold mb-4">Why Self-Employment Tax Matters</h3>
+<p class="mb-4">
+Self-employment tax covers your contributions to Social Security and Medicare. Unlike employees, self-employed individuals pay both portions. Planning ahead avoids penalties and surprises.
+</p>
+<p class="mb-4">
+Use this tool to calculate quarterly payments, manage cash flow, and maintain financial security.
+</p>
+<p class="text-sm text-gray-500">
+Disclaimer: This calculator provides estimates only. For official tax filing, consult the IRS or a certified tax professional.
+</p>
+</div>
+
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="py-10 bg-gray-900 text-gray-300 text-center">
+<p>© 2025 Money Grow Tools — All Rights Reserved.</p>
+</footer>
+
+<script>
+// Scroll reveal
+(function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) entry.target.classList.add('revealed');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+})();
+
+// SE Tax Calculator
+document.getElementById('calculateSE').addEventListener('click', () => {
+    const income = parseFloat(document.getElementById('incomeInput').value) || 0;
+    const deduction = parseFloat(document.getElementById('deductionInput').value) || 0;
+    const netIncome = Math.max(0, income - deduction);
+    const seRate = 0.153;
+    const seTax = netIncome * seRate;
+
+    const resultDiv = document.getElementById('seResult');
+    const seTaxAmount = document.getElementById('seTaxAmount');
+
+    seTaxAmount.textContent = '$' + seTax.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    resultDiv.classList.remove('hidden');
+    resultDiv.scrollIntoView({behavior: 'smooth', block: 'start'});
+});
+</script>
+</body>
+</html>
