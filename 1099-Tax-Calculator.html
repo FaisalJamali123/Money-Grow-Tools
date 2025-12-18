@@ -1,256 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1099 Tax Calculator 2025 – Federal & State Self-Employment Tax Tool</title>
+  <meta charset="UTF-8" />
+  <title>1099 Tax Calculator – Money Grow Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- TAILWIND CSS (Fixes all layout issues) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <script src="https://kit.fontawesome.com/4f3e3b5b0f.js" crossorigin="anonymous"></script>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- OCR -->
-    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Tesseract.js -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- ===========================
-         HEADER
-    ============================ -->
-    <header class="shadow-lg bg-white sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-700">Money Grow Tool</h1>
+<!-- HEADER -->
+<header class="bg-white border-b">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div class="text-xl font-bold text-blue-600">Money Grow Tools</div>
+    <nav class="hidden md:flex space-x-8 text-sm font-medium">
+      <a href="#" class="hover:text-blue-600">Calculators</a>
+      <a href="#" class="hover:text-blue-600">Tools</a>
+      <a href="#" class="hover:text-blue-600">Guides</a>
+    </nav>
+  </div>
+</header>
 
-            <nav class="hidden sm:flex gap-6 text-gray-700 font-medium">
-                <a href="index.html" class="hover:text-blue-600">Home</a>
-                <a href="#how" class="hover:text-blue-600">How It Works</a>
-                <a href="#disclaimer" class="hover:text-blue-600">Disclaimer</a>
-            </nav>
+<!-- HERO -->
+<section class="bg-gradient-to-br from-blue-600 to-blue-700 text-white py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">1099 Tax Calculator</h1>
+    <p class="text-lg max-w-2xl mx-auto opacity-90">
+      Instantly estimate your self-employment, federal, and state taxes — plan quarterly payments and reduce what you owe.
+    </p>
+    <div class="mt-6 flex justify-center gap-6 text-sm font-medium">
+      <span><i class="fa-solid fa-check mr-1"></i> No signup required</span>
+      <span><i class="fa-solid fa-calendar mr-1"></i> 2025 tax rates</span>
+      <span><i class="fa-solid fa-bolt mr-1"></i> Instant results</span>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-xl shadow-lg border p-8 max-w-3xl mx-auto reveal">
+      <h2 class="text-2xl font-bold mb-6 text-center">Tax Calculator</h2>
+
+      <div class="space-y-4">
+        <label class="font-medium">Annual 1099 Income</label>
+        <div class="flex gap-2">
+          <input id="income" type="number" placeholder="80000" class="w-full border rounded-lg px-4 py-2">
+          <button id="micBtn" class="px-4 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
         </div>
-    </header>
 
-    <!-- ===========================
-         HERO SECTION
-    ============================ -->
-    <section class="pt-16 pb-10 bg-gradient-to-br from-blue-50 to-blue-100">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h1 class="text-4xl font-bold text-gray-800 leading-tight">
-                1099 Tax Calculator (2025)
-            </h1>
-            <p class="text-lg text-gray-600 mt-4">
-                Instantly calculate your federal, state, and self-employment taxes using our gig-worker tax tool.
-            </p>
+        <label class="font-medium">Select State</label>
+        <select id="state" class="w-full border rounded-lg px-4 py-2"></select>
+
+        <div class="flex items-center gap-2 mt-4">
+          <input id="missed" type="checkbox">
+          <label>I missed a quarterly tax deadline</label>
         </div>
-    </section>
 
-    <!-- ===========================
-         CALCULATOR CARD
-    ============================ -->
-    <div class="max-w-4xl mx-auto p-6">
-        <div class="bg-white shadow-xl rounded-2xl p-8">
-
-            <h2 class="text-2xl font-bold mb-6 text-gray-800">Enter Your Details</h2>
-
-            <!-- Income -->
-            <label class="block font-medium mb-1">Your 1099 Income ($)</label>
-            <input id="income" type="number" class="w-full p-3 border rounded-lg mb-5" placeholder="e.g. 85000" />
-
-            <!-- Voice Input -->
-            <button onclick="startVoiceInput()" class="mb-5 flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg">
-                <i class="fas fa-microphone"></i> Speak Income
-            </button>
-
-            <!-- Deductions -->
-            <label class="block font-medium mb-1">Business Deductions ($)</label>
-            <input id="deductions" type="number" class="w-full p-3 border rounded-lg mb-5" placeholder="e.g. 12000" />
-
-            <!-- State Selection -->
-            <label class="block font-medium mb-1">Select Your State</label>
-            <select id="stateSelect" class="w-full p-3 border rounded-lg mb-5"></select>
-
-            <!-- Deadline Option -->
-            <label class="block font-medium mb-2">Did you miss the filing deadline?</label>
-            <select id="deadlineStatus" class="w-full p-3 border rounded-lg mb-5">
-                <option value="no">No</option>
-                <option value="yes">Yes – calculate penalties</option>
-            </select>
-
-            <p id="penaltyCounter" class="text-red-600 font-semibold mb-5"></p>
-
-            <!-- OCR Upload -->
-            <label class="font-medium block mb-2">Upload Receipt (OCR)</label>
-            <input type="file" id="receiptUpload" class="mb-5" />
-            <button onclick="scanReceipt()" class="bg-gray-700 text-white px-5 py-2 rounded-lg">Scan Receipt</button>
-
-            <hr class="my-6">
-
-            <!-- Calculate Button -->
-            <button onclick="calculateTax()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl text-lg font-bold">
-                Calculate My Tax
-            </button>
-
-            <!-- Result -->
-            <div id="resultBox" class="mt-8 bg-blue-50 p-6 rounded-xl hidden">
-                <h3 class="text-xl font-bold text-gray-800 mb-3">Your Tax Summary</h3>
-                <p class="text-gray-700" id="resultText"></p>
-            </div>
-
+        <div id="penaltyBox" class="hidden text-sm text-red-600 font-medium">
+          IRS penalty growing: $<span id="penalty">0.00</span>
         </div>
+      </div>
+
+      <p class="text-xs text-center mt-6 text-gray-500">No signup required • Runs entirely in your browser</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEDUCTIONS -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <h2 class="text-2xl font-bold mb-8 text-center">Deduction Tracker</h2>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <input class="deduction border rounded-lg px-4 py-2" placeholder="Home office">
+      <input class="deduction border rounded-lg px-4 py-2" placeholder="Vehicle / mileage">
+      <input class="deduction border rounded-lg px-4 py-2" placeholder="Internet & phone">
+      <input class="deduction border rounded-lg px-4 py-2" placeholder="Software & subscriptions">
+      <input class="deduction border rounded-lg px-4 py-2" placeholder="Marketing & ads">
+      <input class="deduction border rounded-lg px-4 py-2" placeholder="Equipment">
+      <input class="deduction border rounded-lg px-4 py-2 md:col-span-2" placeholder="Other expenses">
     </div>
 
-    <!-- ===========================
-        HOW IT WORKS
-    ============================ -->
-    <section id="how" class="max-w-5xl mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">How This 1099 Tax Calculator Works</h2>
+    <div class="text-center mt-6 font-medium">
+      Total Deductions: $<span id="deductions">0</span>
+    </div>
 
-        <p class="text-gray-600 leading-relaxed mb-6">
-            This 1099 tax calculator is built for freelancers, gig workers, Uber drivers, DoorDash couriers, 
-            creators and contractors. It uses the latest IRS 2025 tax brackets and includes state-wise tax 
-            rules along with self-employment tax (15.3%).
-        </p>
+    <div class="mt-8 text-center">
+      <input type="file" id="receipt" class="mb-2">
+      <p class="text-xs text-gray-500">Receipt scanning happens locally in your browser</p>
+    </div>
+  </div>
+</section>
 
-        <div class="space-y-10">
+<!-- RESULTS -->
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <h2 class="text-2xl font-bold mb-8 text-center">Tax Breakdown</h2>
 
-            <div>
-                <h3 class="font-semibold text-xl text-gray-800 mb-2">1. Enter Your Income</h3>
-                <p class="text-gray-600">Add your total 1099 self-employment earnings.</p>
-            </div>
+    <div class="bg-white rounded-xl shadow border p-8 max-w-3xl mx-auto space-y-3">
+      <div>Gross Income: $<span id="rIncome">0</span></div>
+      <div>Total Deductions: $<span id="rDeduction">0</span></div>
+      <div>Net Taxable Income: $<span id="net">0</span></div>
+      <div>Self-Employment Tax: $<span id="seTax">0</span></div>
+      <div>Federal Tax: $<span id="fedTax">0</span></div>
+      <div>State Tax: $<span id="stateTax">0</span></div>
+      <div class="font-bold text-lg text-blue-600">
+        Total Estimated Tax: $<span id="totalTax">0</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div>
-                <h3 class="font-semibold text-xl text-gray-800 mb-2">2. Add Deductions</h3>
-                <p class="text-gray-600">Enter your business expenses. OCR will auto-read receipts if uploaded.</p>
-            </div>
+<!-- QUARTERLY -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <h2 class="text-2xl font-bold mb-6 text-center">Quarterly Tax Planner</h2>
+    <p class="text-center mb-6">Suggested Quarterly Payment: <strong>$<span id="quarter">0</span></strong></p>
+    <ul class="text-center space-y-2 text-sm">
+      <li>April 15</li>
+      <li>June 15</li>
+      <li>September 15</li>
+      <li>January 15</li>
+    </ul>
+  </div>
+</section>
 
-            <div>
-                <h3 class="font-semibold text-xl text-gray-800 mb-2">3. Select State</h3>
-                <p class="text-gray-600">The calculator automatically applies your state tax bracket.</p>
-            </div>
+<!-- FAQ -->
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <h2 class="text-2xl font-bold mb-8 text-center">FAQs</h2>
+    <div class="max-w-3xl mx-auto space-y-4 text-sm">
+      <p><strong>Do I have to pay quarterly taxes?</strong> Yes, most 1099 workers must.</p>
+      <p><strong>What expenses are deductible?</strong> Ordinary and necessary business expenses.</p>
+      <p><strong>What happens if I miss a payment?</strong> IRS penalties and interest may apply.</p>
+      <p><strong>Is this IRS-accurate?</strong> It uses simplified IRS logic for estimation.</p>
+      <p><strong>Does this replace a CPA?</strong> No, but it helps you plan better.</p>
+    </div>
+  </div>
+</section>
 
-            <div>
-                <h3 class="font-semibold text-xl text-gray-800 mb-2">4. View Simple Tax Summary</h3>
-                <p class="text-gray-600">The tool instantly calculates Federal + State + Self-Employment Tax.</p>
-            </div>
+<!-- CTA -->
+<section class="py-20 bg-blue-600 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+    <h2 class="text-3xl font-bold mb-4">Try More Free Financial Tools</h2>
+    <button class="mt-4 px-6 py-3 rounded-lg bg-white text-blue-600 font-medium hover:bg-gray-100">
+      Explore Calculators
+    </button>
+  </div>
+</section>
 
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer class="bg-gray-800 text-gray-300 py-8 text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    © 2025 Money Grow Tools. Estimates only. Not tax advice.
+  </div>
+</footer>
 
-    <!-- ===========================
-         BOTTOM BANNER
-    ============================ -->
-    <section class="bg-blue-600 py-12 text-center text-white">
-        <h2 class="text-3xl font-bold">Plan Better. Earn Smarter.</h2>
-        <p class="mt-3 text-lg">Use our financial tools to manage taxes and grow your income.</p>
+<script>
+/* Scroll reveal */
+const reveals=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>reveals.forEach(r=>{if(r.getBoundingClientRect().top<window.innerHeight-50)r.classList.add('active')}));
 
-        <a href="index.html" class="mt-6 inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-lg">
-            Back to Home
-        </a>
-    </section>
+/* State tax data */
+const states={"None":0,"CA":0.093,"TX":0,"NY":0.068,"FL":0};
+const stateSel=document.getElementById('state');
+Object.keys(states).forEach(s=>stateSel.innerHTML+=`<option value="${s}">${s}</option>`);
 
-    <!-- ===========================
-         DISCLAIMER
-    ============================ -->
-    <section id="disclaimer" class="max-w-5xl mx-auto px-6 py-12 text-gray-600">
-        <h2 class="text-xl font-bold text-gray-800 mb-3">Disclaimer</h2>
-        <p>
-            This calculator provides an estimated tax calculation based on IRS guidelines. 
-            It is not official tax advice. Always consult a certified tax professional for accurate filings.
-        </p>
-    </section>
+/* Calculation */
+function calc(){
+  const income=+incomeEl.value||0;
+  const deds=[...document.querySelectorAll('.deduction')].reduce((s,i)=>s+(+i.value||0),0);
+  const net=Math.max(income-deds,0);
+  const se=net*0.153;
+  const fed=net*0.12;
+  const st=net*(states[stateSel.value]||0);
+  const total=se+fed+st;
 
-    <!-- ===========================
-         JAVASCRIPT
-    ============================ -->
-    <script>
-        /* STATES */
-        const states = {
-            "California": 0.093,
-            "Texas": 0,
-            "New York": 0.064,
-            "Florida": 0,
-            "Washington": 0,
-            "Nevada": 0,
-            "Oregon": 0.0875,
-            "Arizona": 0.025,
-            "Illinois": 0.0495,
-            "New Jersey": 0.0637,
-            "Ohio": 0.036,
-            "Georgia": 0.0575,
-            "Other": 0.05
-        };
+  rIncome.textContent=income.toFixed(0);
+  rDeduction.textContent=deds.toFixed(0);
+  netEl.textContent=net.toFixed(0);
+  seTax.textContent=se.toFixed(0);
+  fedTax.textContent=fed.toFixed(0);
+  stateTax.textContent=st.toFixed(0);
+  totalTax.textContent=total.toFixed(0);
+  quarter.textContent=(total/4).toFixed(0);
+}
 
-        const stateSelect = document.getElementById("stateSelect");
-        Object.keys(states).forEach(state => {
-            stateSelect.innerHTML += `<option value="${state}">${state}</option>`;
-        });
+const incomeEl=document.getElementById('income');
+const netEl=document.getElementById('net');
+incomeEl.oninput=calc;
+stateSel.onchange=calc;
+document.querySelectorAll('.deduction').forEach(i=>i.oninput=calc);
 
-        /* Voice Input */
-        function startVoiceInput() {
-            const recognition = new webkitSpeechRecognition();
-            recognition.lang = "en-US";
-            recognition.start();
+/* Voice input */
+const mic=document.getElementById('micBtn');
+mic.onclick=()=>{
+  const rec=new webkitSpeechRecognition();
+  rec.start();
+  mic.classList.add('bg-red-600');
+  rec.onresult=e=>{
+    incomeEl.value=e.results[0][0].transcript.replace(/\D/g,'');
+    mic.classList.remove('bg-red-600');
+    calc();
+  };
+};
 
-            recognition.onresult = event => {
-                document.getElementById("income").value =
-                    event.results[0][0].transcript.replace(/[^0-9]/g, "");
-            };
-        }
+/* Penalty counter */
+let pen=0;
+missed.onchange=()=>{
+  penaltyBox.classList.toggle('hidden',!missed.checked);
+  if(missed.checked)setInterval(()=>{pen+=0.5;penalty.textContent=pen.toFixed(2)},60000);
+};
 
-        /* Penalty Counter */
-        let penaltyAmount = 0;
-        setInterval(() => {
-            if (document.getElementById("deadlineStatus").value === "yes") {
-                penaltyAmount += 0.50;
-                document.getElementById("penaltyCounter").innerText =
-                    "IRS penalty adding up: $" + penaltyAmount.toFixed(2);
-            }
-        }, 60000);
-
-        /* OCR */
-        function scanReceipt() {
-            const file = document.getElementById("receiptUpload").files[0];
-            if (!file) return alert("Upload a receipt first.");
-
-            Tesseract.recognize(file, "eng").then(result => {
-                const num = result.data.text.match(/\d+(\.\d+)?/);
-                if (num) {
-                    document.getElementById("deductions").value = num[0];
-                    alert("Detected deductible amount: $" + num[0]);
-                }
-            });
-        }
-
-        /* MAIN CALCULATION */
-        function calculateTax() {
-            const income = Number(document.getElementById("income").value);
-            const deductions = Number(document.getElementById("deductions").value);
-            const state = document.getElementById("stateSelect").value;
-
-            const taxable = Math.max(0, income - deductions);
-
-            const federalTax = taxable * 0.12;
-            const seTax = taxable * 0.153;
-            const stateTax = taxable * states[state];
-
-            const total = federalTax + seTax + stateTax;
-
-            document.getElementById("resultText").innerHTML = `
-                Income: $${income.toLocaleString()} <br>
-                Deductions: $${deductions.toLocaleString()} <br><br>
-
-                <strong>Federal Tax:</strong> $${federalTax.toFixed(2)} <br>
-                <strong>Self-Employment Tax:</strong> $${seTax.toFixed(2)} <br>
-                <strong>${state} State Tax:</strong> $${stateTax.toFixed(2)} <br><br>
-
-                <strong>Total Estimated Tax Owed:</strong> $${total.toFixed(2)}
-            `;
-
-            document.getElementById("resultBox").classList.remove("hidden");
-        }
-    </script>
+/* Receipt OCR */
+receipt.onchange=()=>{
+  Tesseract.recognize(receipt.files[0],'eng').then(r=>{
+    const num=r.data.text.match(/\d+(\.\d+)?/);
+    if(num)document.querySelector('.deduction').value=num[0],calc();
+  });
+};
+</script>
 
 </body>
 </html>
