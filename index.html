@@ -17,262 +17,100 @@
     <style>
         * { font-family: 'Inter', sans-serif; }
 
-        .hero-bg {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
+        .hero-bg { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
+        .tool-card { transition: all 0.3s ease; border: 1px solid #e2e8f0; }
+        .tool-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); border-color: #3b82f6; }
+        .step-icon { transition: all 0.3s ease; }
+        .step-item:hover .step-icon { transform: scale(1.1); background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .testimonial-card { background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; }
+        .nav-link { position: relative; transition: all 0.3s ease; }
+        .nav-link:hover { color: #3b82f6; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #3b82f6; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .gradient-text { background: linear-gradient(135deg, #3b82f6, #1d4ed8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .floating-animation { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .pulse-animation { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.7; } }
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fadeIn { animation: fadeIn 0.3s ease-out; }
 
-        .tool-card {
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: #3b82f6;
-        }
-
-        .step-icon {
-            transition: all 0.3s ease;
-        }
-
-        .step-item:hover .step-icon {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-        }
-
-        .testimonial-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border: 1px solid #e2e8f0;
-        }
-
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #3b82f6;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #3b82f6;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .pulse-animation {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* fadeIn for FAQ */
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-6px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
-
-        /* State Tax Calculator styles (integrated) */
-        .tax-banner {
-            background: #ffffff;
-            padding: 24px;
-            width: 100%;
-            max-width: 380px;
-            border-radius: 18px;
-            box-shadow: 0px 8px 32px rgba(0,0,0,0.10);
-        }
-
-        .banner-title {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #111827;
-        }
-
-        .label {
-            font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        #stateInput {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .state-list {
-            list-style: none;
-            width: 100%;
-            max-height: 180px;
-            overflow-y: auto;
-            margin: 0;
-            padding: 0;
-            border: 1px solid #d1d5db;
-            border-radius: 10px;
-            display: none;
-            background: white;
-        }
-
-        .state-list li {
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .state-list li:hover {
-            background: #f3f4f6;
-        }
-
-        .btn-check {
-            width: 100%;
-            margin-top: 12px;
-            padding: 12px;
-            background: #2563eb;
-            border: none;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .btn-check:hover {
-            background: #1e4fc9;
-        }
-
-        /* small screens adjustments for tax-banner inside hero */
-        @media (max-width: 1024px) {
-            .tax-banner { margin: 0 auto; }
-        }
+        /* Tax Banner */
+        .tax-banner { background: #ffffff; padding: 24px; width: 100%; max-width: 380px; border-radius: 18px; box-shadow: 0px 8px 32px rgba(0,0,0,0.10); }
+        .banner-title { font-size: 22px; font-weight: 600; margin-bottom: 12px; color: #111827; }
+        .label { font-size: 14px; color: #4b5563; margin-bottom: 6px; display: block; }
+        #stateInput { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 10px; margin-bottom: 10px; font-size: 16px; }
+        .state-list { list-style: none; width: 100%; max-height: 180px; overflow-y: auto; margin: 0; padding: 0; border: 1px solid #d1d5db; border-radius: 10px; display: none; background: white; }
+        .state-list li { padding: 10px; cursor: pointer; }
+        .state-list li:hover { background: #f3f4f6; }
+        .btn-check { width: 100%; margin-top: 12px; padding: 12px; background: #2563eb; border: none; color: white; font-size: 16px; font-weight: 600; border-radius: 10px; cursor: pointer; }
+        .btn-check:hover { background: #1e4fc9; }
+        @media (max-width: 1024px) { .tax-banner { margin: 0 auto; } }
     </style>
 </head>
 <body class="bg-white text-gray-800">
 
-    <!-- Header -->
-    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-chart-line text-white text-lg"></i>
-                    </div>
-                    <span class="text-xl font-bold text-gray-800">Money Grow Tools</span>
+<!-- Header -->
+<header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-chart-line text-white text-lg"></i>
                 </div>
-                
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Home</a>
-                    <a href="#tools" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Tools</a>
-                    <a href="#blog" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Blog</a>
-                    <a href="About-Us.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium">About Us</a>
-                    <a href="Contact-Us.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Contact Us</a>
-                </nav>
-                
-                <a href="#tools" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-                    Try Tools
-                </a>
+                <span class="text-xl font-bold text-gray-800">Money Grow Tools</span>
             </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Home</a>
+                <a href="#tools" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Tools</a>
+                <a href="#blog" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Blog</a>
+                <a href="About-Us.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium">About Us</a>
+                <a href="Contact-Us.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Contact Us</a>
+            </nav>
+            
+            <a href="#tools" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">Try Tools</a>
         </div>
-    </header>
+    </div>
+</header>
 
-    
-    <!-- HERO SECTION -->
+<!-- HERO SECTION -->
 <section id="home" class="hero-bg pt-24 pb-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-
-            <!-- LEFT TEXT CONTENT -->
+            <!-- LEFT TEXT -->
             <div class="space-y-8">
                 <h1 class="text-5xl font-bold leading-tight">
                     <span class="gradient-text">US Gig Worker</span><br>
                     Financial Survival Kit
                 </h1>
-
                 <p class="text-xl text-gray-600">
-                    US self-employment tax is 15.3% on top of income tax.
-                    Most gig workers think they’re safe — until they owe thousands in April.
+                    US self-employment tax is 15.3% on top of income tax. Most gig workers think they’re safe — until they owe thousands in April.
                 </p>
-
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#tools" class="bg-blue-600 text-white px-8 py-4 rounded-lg">
-                        Start Calculating
-                    </a>
-                    <a href="#blog" class="border border-blue-600 text-blue-600 px-8 py-4 rounded-lg">
-                        View Demo
-                    </a>
+                    <a href="#tools" class="bg-blue-600 text-white px-8 py-4 rounded-lg">Start Calculating</a>
+                    <a href="#blog" class="border border-blue-600 text-blue-600 px-8 py-4 rounded-lg">View Demo</a>
                 </div>
             </div>
-
             <!-- RIGHT FLOATING TAX BANNER -->
             <div class="relative flex justify-center lg:justify-end mt-10 lg:mt-0">
                 <div class="floating-animation">
                     <div class="tax-banner">
                         <h3 class="banner-title">Find Your State Tax Rate</h3>
-
                         <label class="label">Choose Your State</label>
                         <input type="text" id="stateInput" placeholder="Start typing…" oninput="filterStates()">
-
                         <ul id="stateList" class="state-list"></ul>
-
                         <button class="btn-check" onclick="applyState()">Check Tax Rate</button>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 </section>
 
-    
-    <!-- Featured Tools Section -->
+<!-- TOOLS SECTION -->
 <section id="tools" class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 scroll-reveal">
@@ -284,61 +122,51 @@
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- 1099 TAX CALCULATOR -->
+            <!-- 1099 -->
             <div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
-    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-        <i class="fas fa-file-invoice-dollar text-blue-600 text-2xl"></i>
-    </div>
-
-    <h3 class="text-xl font-semibold text-gray-800 mb-3">1099 Tax Calculator</h3>
-
-    <p class="text-gray-600 mb-6">
-        Estimate your federal, state, and self-employment taxes based on your 1099 income.
-    </p> 
+                <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-file-invoice-dollar text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">1099 Tax Calculator</h3>
+                <p class="text-gray-600 mb-6">Estimate your federal, state, and self-employment taxes based on your 1099 income.</p> 
                 <a href="1099-Tax-Calculator.html">
-        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-            Try Now
-        </button>
-    </a>
-</div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors w-full">
+                        Try Now
+                    </button>
+                </a>
+            </div>
 
-            <!-- QUARTERLY TAX CALCULATOR -->
-<div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
-    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-        <i class="fas fa-calendar-alt text-green-600 text-2xl"></i>
-    </div>
-    
-    <h3 class="text-xl font-semibold text-gray-800 mb-3">Quarterly Tax Calculator</h3>
-    
-    <p class="text-gray-600 mb-6">
-        Calculate your estimated quarterly tax payments to avoid IRS penalties.
-    </p>
-    
-    <a href="Quarterly-tax-calculator.html" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block text-center">
-        Try Now
-    </a>
-</div>
-
-
-            <!-- SELF-EMPLOYMENT TAX CALCULATOR -->
+            <!-- QUARTERLY -->
             <div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
-    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-        <i class="fas fa-briefcase text-purple-600 text-2xl"></i>
+                <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-calendar-alt text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Quarterly Tax Calculator</h3>
+                <p class="text-gray-600 mb-6">Calculate your estimated quarterly tax payments to avoid IRS penalties.</p>
+                <a href="Quarterly-Tax-Calculator.html">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition-colors w-full">
+                        Try Now
+                    </button>
+                </a>
+            </div>
+
+            <!-- SELF-EMPLOYMENT -->
+            <div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
+                <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-briefcase text-purple-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Self-Employment Tax Calculator</h3>
+                <p class="text-gray-600 mb-6">Determine how much you owe in self-employment tax including Social Security and Medicare.</p>
+                <a href="Self-Employment-Tax-Calculator.html">
+                    <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-colors w-full">
+                        Try Now
+                    </button>
+                </a>
+            </div>
+
+        </div>
     </div>
-
-    <h3 class="text-xl font-semibold text-gray-800 mb-3">Self-Employment Tax Calculator</h3>
-
-    <p class="text-gray-600 mb-6">
-        Determine how much you owe in self-employment tax including Social Security and Medicare.
-    </p>
-
-    <a href="Self-Employment-Tax-Calculator.html">
-        <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-colors w-full">
-            Try Now
-        </button>
-    </a>
-</div>
-
+</section>
 
 
     <!-- How It Works Section -->
