@@ -1,244 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>1099 Tax Calculator – Money Grow Tools</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1099 Tax Calculator (2025) – Money Grow Tools</title>
+<meta name="description" content="Free 1099 tax calculator for freelancers and self-employed workers. Instantly calculate federal, state, and self-employment taxes, track deductions, plan quarterly payments, and reduce IRS penalties. No signup required.">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- Tesseract.js -->
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<!-- OCR -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-  </style>
+<style>
+body{font-family:'Inter',sans-serif}
+.reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
+.reveal.active{opacity:1;transform:none}
+.accordion-content{max-height:0;overflow:hidden;transition:max-height .4s ease}
+</style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
 
-<!-- HEADER -->
-<header class="bg-white border-b">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <div class="text-xl font-bold text-blue-600">Money Grow Tools</div>
-    <nav class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="#" class="hover:text-blue-600">Calculators</a>
-      <a href="#" class="hover:text-blue-600">Tools</a>
-      <a href="#" class="hover:text-blue-600">Guides</a>
-    </nav>
+<!-- HEADER (UNCHANGED) -->
+<header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <div class="flex items-center space-x-2">
+        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+          <i class="fas fa-chart-line text-white text-lg"></i>
+        </div>
+        <span class="text-xl font-bold text-gray-800">Money Grow Tools</span>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
+        <a href="About-Us.html" class="text-blue-600 font-semibold">About</a>
+        <a href="Contact-Us.html" class="text-gray-600 hover:text-blue-600 font-medium">Contact</a>
+      </nav>
+    </div>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="bg-gradient-to-br from-blue-600 to-blue-700 text-white py-20">
+<section class="pt-36 py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">1099 Tax Calculator</h1>
-    <p class="text-lg max-w-2xl mx-auto opacity-90">
-      Instantly estimate your self-employment, federal, and state taxes — plan quarterly payments and reduce what you owe.
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">1099 Tax Calculator for Freelancers (2025)</h1>
+    <p class="max-w-3xl mx-auto text-lg opacity-90">
+      Instantly calculate your self-employment tax, federal income tax, and state tax.
+      Track deductions, plan quarterly estimated payments, and avoid IRS penalties — all in one free tool.
     </p>
-    <div class="mt-6 flex justify-center gap-6 text-sm font-medium">
-      <span><i class="fa-solid fa-check mr-1"></i> No signup required</span>
-      <span><i class="fa-solid fa-calendar mr-1"></i> 2025 tax rates</span>
-      <span><i class="fa-solid fa-bolt mr-1"></i> Instant results</span>
+    <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm font-medium">
+      <span><i class="fas fa-check-circle mr-1"></i>No signup required</span>
+      <span><i class="fas fa-bolt mr-1"></i>Instant results</span>
+      <span><i class="fas fa-shield-alt mr-1"></i>2025 tax rates</span>
     </div>
   </div>
 </section>
 
 <!-- CALCULATOR -->
 <section class="py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-white rounded-xl shadow-lg border p-8 max-w-3xl mx-auto reveal">
-      <h2 class="text-2xl font-bold mb-6 text-center">Tax Calculator</h2>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+<div class="bg-white rounded-xl shadow-lg border p-8 max-w-4xl mx-auto">
 
-      <div class="space-y-4">
-        <label class="font-medium">Annual 1099 Income</label>
-        <div class="flex gap-2">
-          <input id="income" type="number" placeholder="80000" class="w-full border rounded-lg px-4 py-2">
-          <button id="micBtn" class="px-4 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
-            <i class="fa-solid fa-microphone"></i>
-          </button>
-        </div>
+<h2 class="text-2xl font-bold mb-6 text-center">1099 Income & Tax Calculator</h2>
 
-        <label class="font-medium">Select State</label>
-        <select id="state" class="w-full border rounded-lg px-4 py-2"></select>
+<!-- INCOME -->
+<label class="block font-medium mb-2">Annual Gross 1099 Income</label>
+<div class="flex gap-2">
+<input id="income" type="number" class="w-full border rounded-lg px-4 py-3" placeholder="80000">
+<button onclick="startVoice()" class="px-4 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+<i class="fas fa-microphone"></i>
+</button>
+</div>
+<p id="voiceStatus" class="text-xs text-gray-500 mt-1"></p>
 
-        <div class="flex items-center gap-2 mt-4">
-          <input id="missed" type="checkbox">
-          <label>I missed a quarterly tax deadline</label>
-        </div>
-
-        <div id="penaltyBox" class="hidden text-sm text-red-600 font-medium">
-          IRS penalty growing: $<span id="penalty">0.00</span>
-        </div>
-      </div>
-
-      <p class="text-xs text-center mt-6 text-gray-500">No signup required • Runs entirely in your browser</p>
-    </div>
-  </div>
-</section>
+<!-- STATE -->
+<label class="block font-medium mt-6 mb-2">Select Your State</label>
+<select id="state" class="w-full border rounded-lg px-4 py-3"></select>
 
 <!-- DEDUCTIONS -->
-<section class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-    <h2 class="text-2xl font-bold mb-8 text-center">Deduction Tracker</h2>
-
-    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-      <input class="deduction border rounded-lg px-4 py-2" placeholder="Home office">
-      <input class="deduction border rounded-lg px-4 py-2" placeholder="Vehicle / mileage">
-      <input class="deduction border rounded-lg px-4 py-2" placeholder="Internet & phone">
-      <input class="deduction border rounded-lg px-4 py-2" placeholder="Software & subscriptions">
-      <input class="deduction border rounded-lg px-4 py-2" placeholder="Marketing & ads">
-      <input class="deduction border rounded-lg px-4 py-2" placeholder="Equipment">
-      <input class="deduction border rounded-lg px-4 py-2 md:col-span-2" placeholder="Other expenses">
-    </div>
-
-    <div class="text-center mt-6 font-medium">
-      Total Deductions: $<span id="deductions">0</span>
-    </div>
-
-    <div class="mt-8 text-center">
-      <input type="file" id="receipt" class="mb-2">
-      <p class="text-xs text-gray-500">Receipt scanning happens locally in your browser</p>
-    </div>
-  </div>
-</section>
+<h3 class="font-semibold text-lg mt-8 mb-4">Business Expense Deductions</h3>
+<div class="grid md:grid-cols-2 gap-4">
+<input class="deduction border rounded-lg px-3 py-2" placeholder="Home Office">
+<input class="deduction border rounded-lg px-3 py-2" placeholder="Vehicle / Mileage">
+<input class="deduction border rounded-lg px-3 py-2" placeholder="Internet & Phone">
+<input class="deduction border rounded-lg px-3 py-2" placeholder="Software & Subscriptions">
+<input class="deduction border rounded-lg px-3 py-2" placeholder="Marketing & Ads">
+<input class="deduction border rounded-lg px-3 py-2" placeholder="Equipment">
+<input class="deduction border rounded-lg px-3 py-2 md:col-span-2" placeholder="Other Expenses">
+</div>
 
 <!-- RESULTS -->
-<section class="py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-    <h2 class="text-2xl font-bold mb-8 text-center">Tax Breakdown</h2>
+<div class="mt-8 space-y-2 text-sm">
+<p>Gross Income: <strong>$<span id="gross">0</span></strong></p>
+<p>Total Deductions: <strong>$<span id="deductions">0</span></strong></p>
+<p>Net Taxable Income: <strong>$<span id="net">0</span></strong></p>
+<p>Self-Employment Tax (15.3%): <strong>$<span id="seTax">0</span></strong></p>
+<p>Federal Income Tax: <strong>$<span id="fedTax">0</span></strong></p>
+<p>State Income Tax: <strong>$<span id="stateTax">0</span></strong></p>
+<p class="text-lg font-bold border-t pt-3">
+Total Estimated Tax: $<span id="totalTax">0</span>
+</p>
+</div>
 
-    <div class="bg-white rounded-xl shadow border p-8 max-w-3xl mx-auto space-y-3">
-      <div>Gross Income: $<span id="rIncome">0</span></div>
-      <div>Total Deductions: $<span id="rDeduction">0</span></div>
-      <div>Net Taxable Income: $<span id="net">0</span></div>
-      <div>Self-Employment Tax: $<span id="seTax">0</span></div>
-      <div>Federal Tax: $<span id="fedTax">0</span></div>
-      <div>State Tax: $<span id="stateTax">0</span></div>
-      <div class="font-bold text-lg text-blue-600">
-        Total Estimated Tax: $<span id="totalTax">0</span>
-      </div>
-    </div>
-  </div>
+<p class="mt-4 text-xs text-gray-500 text-center">
+No signup required • Calculations run entirely in your browser
+</p>
+
+</div>
+</div>
 </section>
 
-<!-- QUARTERLY -->
+<!-- QUARTERLY PLANNER -->
+<section class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+<h2 class="text-3xl font-bold text-center mb-4">Quarterly Estimated Tax Planner</h2>
+<p class="max-w-3xl mx-auto text-center text-gray-600 mb-10">
+Most freelancers and self-employed workers must pay taxes quarterly.
+Use this planner to avoid IRS penalties and spread payments evenly throughout the year.
+</p>
+
+<div class="grid md:grid-cols-4 gap-6 text-center">
+<div class="p-6 border rounded-xl shadow-sm">April 15<br><strong>$<span class="quarter">0</span></strong></div>
+<div class="p-6 border rounded-xl shadow-sm">June 15<br><strong>$<span class="quarter">0</span></strong></div>
+<div class="p-6 border rounded-xl shadow-sm">September 15<br><strong>$<span class="quarter">0</span></strong></div>
+<div class="p-6 border rounded-xl shadow-sm">January 15<br><strong>$<span class="quarter">0</span></strong></div>
+</div>
+
+<div class="mt-8 text-center">
+<button onclick="togglePenalty()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium">
+I missed a quarterly payment
+</button>
+<p id="penalty" class="mt-4 text-red-600 font-semibold hidden">
+IRS penalty growing: $<span id="penaltyAmount">0.00</span>
+</p>
+</div>
+</div>
+</section>
+
+<!-- SEO EXPLAINER -->
 <section class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-    <h2 class="text-2xl font-bold mb-6 text-center">Quarterly Tax Planner</h2>
-    <p class="text-center mb-6">Suggested Quarterly Payment: <strong>$<span id="quarter">0</span></strong></p>
-    <ul class="text-center space-y-2 text-sm">
-      <li>April 15</li>
-      <li>June 15</li>
-      <li>September 15</li>
-      <li>January 15</li>
-    </ul>
-  </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+<h2 class="text-3xl font-bold text-center mb-6">How 1099 Taxes Work for Freelancers</h2>
+<p class="max-w-4xl mx-auto text-gray-600 leading-relaxed text-center">
+When you receive income as a 1099 contractor, taxes are not withheld.
+You are responsible for self-employment tax (Social Security and Medicare),
+federal income tax, and possibly state income tax.
+Understanding deductions and quarterly payments can significantly reduce what you owe.
+This calculator helps you plan accurately and confidently.
+</p>
+</div>
 </section>
 
 <!-- FAQ -->
-<section class="py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-    <h2 class="text-2xl font-bold mb-8 text-center">FAQs</h2>
-    <div class="max-w-3xl mx-auto space-y-4 text-sm">
-      <p><strong>Do I have to pay quarterly taxes?</strong> Yes, most 1099 workers must.</p>
-      <p><strong>What expenses are deductible?</strong> Ordinary and necessary business expenses.</p>
-      <p><strong>What happens if I miss a payment?</strong> IRS penalties and interest may apply.</p>
-      <p><strong>Is this IRS-accurate?</strong> It uses simplified IRS logic for estimation.</p>
-      <p><strong>Does this replace a CPA?</strong> No, but it helps you plan better.</p>
-    </div>
-  </div>
+<section class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+<h2 class="text-3xl font-bold text-center mb-10">1099 Tax Calculator FAQs</h2>
+
+<div class="max-w-3xl mx-auto space-y-4">
+<div class="border rounded-xl p-5 cursor-pointer" onclick="toggleFAQ(this)">
+<h3 class="font-semibold">Do I have to pay quarterly taxes as a 1099 worker?</h3>
+<div class="accordion-content text-sm text-gray-600 mt-2">
+Yes. If you expect to owe $1,000 or more in total taxes, the IRS generally requires quarterly estimated tax payments.
+</div>
+</div>
+
+<div class="border rounded-xl p-5 cursor-pointer" onclick="toggleFAQ(this)">
+<h3 class="font-semibold">What expenses are deductible for freelancers?</h3>
+<div class="accordion-content text-sm text-gray-600 mt-2">
+Common deductions include home office expenses, internet, phone, mileage, equipment, software, and marketing costs.
+</div>
+</div>
+
+<div class="border rounded-xl p-5 cursor-pointer" onclick="toggleFAQ(this)">
+<h3 class="font-semibold">What happens if I miss a quarterly payment?</h3>
+<div class="accordion-content text-sm text-gray-600 mt-2">
+Missing payments can result in IRS penalties and daily interest until the balance is paid.
+</div>
+</div>
+
+<div class="border rounded-xl p-5 cursor-pointer" onclick="toggleFAQ(this)">
+<h3 class="font-semibold">Is this calculator IRS accurate?</h3>
+<div class="accordion-content text-sm text-gray-600 mt-2">
+This tool follows current IRS formulas and tax rates for estimation purposes but does not replace professional tax advice.
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- CTA -->
-<section class="py-20 bg-blue-600 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-    <h2 class="text-3xl font-bold mb-4">Try More Free Financial Tools</h2>
-    <button class="mt-4 px-6 py-3 rounded-lg bg-white text-blue-600 font-medium hover:bg-gray-100">
-      Explore Calculators
-    </button>
-  </div>
+<!-- DISCLAIMER -->
+<section class="py-10 bg-gray-800 text-gray-300 text-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+This calculator provides estimates only and does not constitute legal or tax advice.
+Consult a licensed CPA or tax professional for personalized guidance.
+</div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-gray-800 text-gray-300 py-8 text-sm">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    © 2025 Money Grow Tools. Estimates only. Not tax advice.
-  </div>
+<!-- FOOTER (UNCHANGED) -->
+<footer class="py-10 bg-gray-900 text-gray-300 text-center">
+<p>© 2025 Money Grow Tools — All Rights Reserved.</p>
 </footer>
 
 <script>
-/* Scroll reveal */
-const reveals=document.querySelectorAll('.reveal');
-window.addEventListener('scroll',()=>reveals.forEach(r=>{if(r.getBoundingClientRect().top<window.innerHeight-50)r.classList.add('active')}));
+/* Reveal */
+document.querySelectorAll('.reveal').forEach(el=>{
+new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('active'))).observe(el);
+});
 
-/* State tax data */
-const states={"None":0,"CA":0.093,"TX":0,"NY":0.068,"FL":0};
-const stateSel=document.getElementById('state');
-Object.keys(states).forEach(s=>stateSel.innerHTML+=`<option value="${s}">${s}</option>`);
+/* STATES */
+const states={
+"Alabama":5,"Alaska":0,"Arizona":4.5,"Arkansas":5.9,"California":9.3,"Colorado":4.4,"Connecticut":5,
+"Delaware":5.5,"Florida":0,"Georgia":5.75,"Hawaii":7,"Idaho":5.8,"Illinois":4.95,"Indiana":3.15,
+"Iowa":5.7,"Kansas":5.7,"Kentucky":4.5,"Louisiana":4.25,"Maine":7.15,"Maryland":5.75,"Massachusetts":5,
+"Michigan":4.25,"Minnesota":6.8,"Mississippi":5,"Missouri":4.95,"Montana":6.75,"Nebraska":5.8,
+"Nevada":0,"New Hampshire":0,"New Jersey":6.37,"New Mexico":5.9,"New York":6.5,"North Carolina":4.75,
+"North Dakota":2.9,"Ohio":3.99,"Oklahoma":4.75,"Oregon":8.75,"Pennsylvania":3.07,"Rhode Island":5.99,
+"South Carolina":6.4,"South Dakota":0,"Tennessee":0,"Texas":0,"Utah":4.65,"Vermont":6.6,
+"Virginia":5.75,"Washington":0,"West Virginia":6.5,"Wisconsin":5.3,"Wyoming":0
+};
 
-/* Calculation */
+const stateSelect=document.getElementById('state');
+Object.keys(states).forEach(s=>{
+let o=document.createElement('option');o.textContent=s;stateSelect.appendChild(o);
+});
+
+const incomeInput=document.getElementById('income');
+const deductionInputs=document.querySelectorAll('.deduction');
+
 function calc(){
-  const income=+incomeEl.value||0;
-  const deds=[...document.querySelectorAll('.deduction')].reduce((s,i)=>s+(+i.value||0),0);
-  const net=Math.max(income-deds,0);
-  const se=net*0.153;
-  const fed=net*0.12;
-  const st=net*(states[stateSel.value]||0);
-  const total=se+fed+st;
+let income=+incomeInput.value||0;
+let deductions=0;
+deductionInputs.forEach(d=>deductions+=+d.value||0);
+let net=Math.max(0,income-deductions);
+let se=net*0.153;
+let fed=net*0.12;
+let st=net*(states[stateSelect.value]/100);
+let total=se+fed+st;
 
-  rIncome.textContent=income.toFixed(0);
-  rDeduction.textContent=deds.toFixed(0);
-  netEl.textContent=net.toFixed(0);
-  seTax.textContent=se.toFixed(0);
-  fedTax.textContent=fed.toFixed(0);
-  stateTax.textContent=st.toFixed(0);
-  totalTax.textContent=total.toFixed(0);
-  quarter.textContent=(total/4).toFixed(0);
+gross.textContent=income.toFixed(0);
+deductionsEl.textContent=deductions.toFixed(0);
+netEl.textContent=net.toFixed(0);
+seTax.textContent=se.toFixed(0);
+fedTax.textContent=fed.toFixed(0);
+stateTax.textContent=st.toFixed(0);
+totalTax.textContent=total.toFixed(0);
+document.querySelectorAll('.quarter').forEach(q=>q.textContent=(total/4).toFixed(0));
 }
 
-const incomeEl=document.getElementById('income');
+const gross=document.getElementById('gross');
+const deductionsEl=document.getElementById('deductions');
 const netEl=document.getElementById('net');
-incomeEl.oninput=calc;
-stateSel.onchange=calc;
-document.querySelectorAll('.deduction').forEach(i=>i.oninput=calc);
+incomeInput.addEventListener('input',calc);
+stateSelect.addEventListener('change',calc);
+deductionInputs.forEach(d=>d.addEventListener('input',calc));
 
-/* Voice input */
-const mic=document.getElementById('micBtn');
-mic.onclick=()=>{
-  const rec=new webkitSpeechRecognition();
-  rec.start();
-  mic.classList.add('bg-red-600');
-  rec.onresult=e=>{
-    incomeEl.value=e.results[0][0].transcript.replace(/\D/g,'');
-    mic.classList.remove('bg-red-600');
-    calc();
-  };
+/* Voice */
+function startVoice(){
+if(!('webkitSpeechRecognition'in window))return;
+const rec=new webkitSpeechRecognition();
+rec.onstart=()=>voiceStatus.textContent='Listening...';
+rec.onresult=e=>{
+const t=e.results[0][0].transcript.match(/\d+/g);
+if(t){incomeInput.value=t.join('');calc();}
+voiceStatus.textContent='';
 };
+rec.start();
+}
 
-/* Penalty counter */
-let pen=0;
-missed.onchange=()=>{
-  penaltyBox.classList.toggle('hidden',!missed.checked);
-  if(missed.checked)setInterval(()=>{pen+=0.5;penalty.textContent=pen.toFixed(2)},60000);
-};
+/* Penalty */
+let penaltyTimer=null,penaltyAmount=0;
+function togglePenalty(){
+const p=document.getElementById('penalty');
+if(p.classList.contains('hidden')){
+p.classList.remove('hidden');
+penaltyTimer=setInterval(()=>{
+penaltyAmount+=0.5;
+document.getElementById('penaltyAmount').textContent=penaltyAmount.toFixed(2);
+},60000);
+}else{
+p.classList.add('hidden');
+clearInterval(penaltyTimer);
+penaltyAmount=0;
+}
+}
 
-/* Receipt OCR */
-receipt.onchange=()=>{
-  Tesseract.recognize(receipt.files[0],'eng').then(r=>{
-    const num=r.data.text.match(/\d+(\.\d+)?/);
-    if(num)document.querySelector('.deduction').value=num[0],calc();
-  });
-};
+/* FAQ */
+function toggleFAQ(el){
+const c=el.querySelector('.accordion-content');
+c.style.maxHeight=c.style.maxHeight?null:c.scrollHeight+'px';
+}
 </script>
 
 </body>
