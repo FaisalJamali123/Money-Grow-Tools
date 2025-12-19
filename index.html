@@ -16,7 +16,7 @@
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://faisaljamali123.github.io/Money-Grow-Tools/"/>
 
-    <!-- SCHEMA MARKUP - LocalBusiness + WebApplication -->
+    <!-- SCHEMA MARKUP - WebApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -113,14 +113,11 @@
         .gradient-text { background: linear-gradient(135deg, #3b82f6, #1d4ed8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .floating-animation { animation: float 6s ease-in-out infinite; }
         @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        .pulse-animation { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.7; } }
         .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
         .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fadeIn { animation: fadeIn 0.3s ease-out; }
 
-        /* Tax Banner */
         .tax-banner { background: #ffffff; padding: 24px; width: 100%; max-width: 380px; border-radius: 18px; box-shadow: 0px 8px 32px rgba(0,0,0,0.10); }
         .banner-title { font-size: 22px; font-weight: 600; margin-bottom: 12px; color: #111827; }
         .label { font-size: 14px; color: #4b5563; margin-bottom: 6px; display: block; }
@@ -132,7 +129,6 @@
         .btn-check:hover { background: #1e4fc9; }
         @media (max-width: 1024px) { .tax-banner { margin: 0 auto; } }
         
-        /* Comparison Table */
         .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 2rem 0; }
         .comparison-table th { background: #3b82f6; color: white; padding: 1rem; text-align: left; }
         .comparison-table td { padding: 1rem; border-bottom: 1px solid #e2e8f0; }
@@ -165,11 +161,10 @@
     </div>
 </header>
 
-<!-- HERO SECTION - SEO OPTIMIZED -->
+<!-- HERO SECTION -->
 <section id="home" class="hero-bg pt-24 pb-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <!-- LEFT TEXT -->
             <div class="space-y-8">
                 <h1 class="text-5xl font-bold leading-tight">
                     <span class="gradient-text">Free 1099 Tax Calculator</span><br>
@@ -193,7 +188,6 @@
                     </a>
                 </div>
             </div>
-            <!-- RIGHT FLOATING TAX BANNER -->
             <div class="relative flex justify-center lg:justify-end mt-10 lg:mt-0">
                 <div class="floating-animation">
                     <div class="tax-banner">
@@ -312,7 +306,6 @@
         
         <div class="grid md:grid-cols-3 gap-8">
 
-            <!-- 1099 Calculator -->
             <div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
                 <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
                     <i class="fas fa-file-invoice-dollar text-blue-600 text-2xl"></i>
@@ -332,47 +325,27 @@
                     </button>
                 </a>
             </div>
-            
 
-<!-- Quarterly Calculator -->
-<div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
-    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-        <i class="fas fa-calendar-alt text-green-600 text-2xl" aria-hidden="true"></i>
-    </div>
+            <div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
+                <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-calendar-alt text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Quarterly Tax Calculator</h3>
+                <p class="text-gray-600 mb-4">
+                    <strong>Never miss a payment deadline.</strong> Calculate exactly how much to pay the IRS each quarter to avoid penalties.
+                </p>
+                <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Auto-shows next deadline</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Penalty estimator if late</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Download payment calendar (.ics)</li>
+                </ul>
+                <a href="Quarterly-Tax-Calculator.html">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
+                        Try Quarterly Calculator →
+                    </button>
+                </a>
+            </div>
 
-    <h3 class="text-xl font-semibold text-gray-800 mb-3">
-        Quarterly Tax Calculator
-    </h3>
-
-    <p class="text-gray-600 mb-4">
-        <strong>Never miss a payment deadline.</strong>
-        Calculate exactly how much to pay the IRS each quarter to avoid penalties.
-    </p>
-
-    <ul class="space-y-2 mb-6 text-sm text-gray-600">
-        <li>
-            <i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>
-            Auto-shows next IRS deadline
-        </li>
-        <li>
-            <i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>
-            Penalty estimator if late
-        </li>
-        <li>
-            <i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>
-            Download payment calendar (.ics)
-        </li>
-    </ul>
-
-    <a href="Quarterly-Tax-Calculator.html"
-       class="inline-block w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center">
-        Try Quarterly Calculator →
-    </a>
-</div>
-
-
-
-            <!-- Self-Employment Calculator -->
             <div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
                 <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
                     <i class="fas fa-briefcase text-purple-600 text-2xl"></i>
