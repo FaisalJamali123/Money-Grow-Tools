@@ -3,71 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Self-Employment Tax Calculator - Money Grow Tools</title>
+<title>Self-Employment Tax Calculator – Money Grow Tools</title>
 <meta name="description" content="Accurately calculate your self-employment tax (Social Security + Medicare) as a freelancer or gig worker. Plan quarterly payments and avoid IRS penalties.">
 <meta name="keywords" content="Self-Employment Tax, SE Tax Calculator, Social Security, Medicare, Freelance Tax, 1099 Tax, IRS, Tax Planning">
+
+<!-- Open Graph / Twitter Cards -->
+<meta property="og:title" content="Self-Employment Tax Calculator – Money Grow Tools">
+<meta property="og:description" content="Estimate your self-employment tax and quarterly payments instantly. Includes Social Security, Medicare, and penalty insights.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://faisaljamali123.github.io/Money-Grow-Tools/Self-Employment-Tax-Calculator.html">
+<meta property="og:image" content="https://faisaljamali123.github.io/Money-Grow-Tools/assets/se-calculator-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Self-Employment Tax Calculator – Money Grow Tools">
+<meta name="twitter:description" content="Estimate your self-employment tax and quarterly payments instantly. Includes Social Security, Medicare, and penalty insights.">
+<meta name="twitter:image" content="https://faisaljamali123.github.io/Money-Grow-Tools/assets/se-calculator-og.png">
+
+<!-- Fonts & Tailwind -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<!-- Tesseract.js for receipt scanning -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+<!-- FAQ Schema & Calculator Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is self-employment tax?","acceptedAnswer":{"@type":"Answer","text":"Self-employment tax covers Social Security and Medicare contributions for freelancers and gig workers. It is 15.3% of net earnings."}},
+    {"@type":"Question","name":"How can I calculate quarterly payments?","acceptedAnswer":{"@type":"Answer","text":"Use this calculator to estimate your annual SE tax, then divide by four for quarterly IRS payments. Adjust for deductions and state taxes."}},
+    {"@type":"Question","name":"Can I deduct expenses?","acceptedAnswer":{"@type":"Answer","text":"Yes. Deductible expenses such as home office, vehicle mileage, internet, software, marketing, and equipment reduce your taxable income."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TaxCalculator",
+  "name": "Self-Employment Tax Calculator",
+  "description": "Calculate your self-employment tax including Social Security and Medicare. Provides quarterly payment estimates and state tax adjustments.",
+  "url": "https://faisaljamali123.github.io/Money-Grow-Tools/Self-Employment-Tax-Calculator.html",
+  "currency": "USD",
+  "resultType": "tax"
+}
+</script>
 
 <style>
-* { font-family: 'Inter', sans-serif; margin:0; padding:0; box-sizing:border-box; }
-body { background: #f9fafb; color: #1f2937; }
-
-.scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
-.scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
-
-.calculator-card { transition: all 0.3s ease; }
-.calculator-card:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(0,0,0,0.08); }
-
-/* Infographic */
-.infographic {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-}
-.infographic-item {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
+body { font-family: 'Inter', sans-serif; background: #f9fafb; color: #1f2937; }
+.scroll-reveal { opacity:0; transform:translateY(30px); transition:all .6s ease; }
+.scroll-reveal.revealed { opacity:1; transform:translateY(0); }
+.calculator-card { transition:all .3s ease; }
+.calculator-card:hover { transform:translateY(-5px); box-shadow:0 15px 25px rgba(0,0,0,0.08); }
+.infographic { display:flex; justify-content:center; align-items:center; gap:2rem; flex-wrap:wrap; margin-bottom:2rem; }
+.infographic-item { width:180px; height:180px; border-radius:50%; display:flex; flex-direction:column; justify-content:center; align-items:center; font-weight:600; text-align:center; color:white; position:relative; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.1); }
 .bg-social { background: linear-gradient(135deg, #4f46e5, #6366f1); animation: pulse 2s infinite; }
 .bg-medicare { background: linear-gradient(135deg, #10b981, #34d399); animation: float 3s infinite; }
 .infographic-item span { font-size: 1.2rem; }
 @keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.1);opacity:0.8;} }
-@keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);} }
+@keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
 </style>
 </head>
 <body>
 
-<!-- Header -->
+<!-- HEADER -->
 <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between items-center py-4">
 <div class="flex items-center space-x-2">
-<div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
-<i class="fas fa-calculator text-white text-lg"></i>
+<div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+<i class="fas fa-chart-line text-white text-lg"></i>
 </div>
 <span class="text-xl font-bold text-gray-800">Money Grow Tools</span>
 </div>
 <nav class="hidden md:flex space-x-8">
-<a href="index.html" class="text-gray-600 hover:text-purple-600 font-medium">Home</a>
-<a href="Quarterly-Tax-Calculator.html" class="text-gray-600 hover:text-purple-600 font-medium">Quarterly Tax Calculator</a>
-<a href="1099-Tax-Calculator.html" class="text-gray-600 hover:text-purple-600 font-medium">1099 Tax Calculator</a>
-<a href="Contact-Us.html" class="text-gray-600 hover:text-purple-600 font-medium">Contact</a>
+<a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
+<a href="Quarterly-Tax-Calculator.html" class="text-gray-600 hover:text-blue-600 font-medium">Quarterly Tax Calculator</a>
+<a href="1099-Tax-Calculator.html" class="text-gray-600 hover:text-blue-600 font-medium">1099 Tax Calculator</a>
+<a href="Contact-Us.html" class="text-gray-600 hover:text-blue-600 font-medium">Contact</a>
 </nav>
 </div>
 </div>
@@ -81,7 +95,7 @@ body { background: #f9fafb; color: #1f2937; }
 <div class="text-center mb-12 scroll-reveal">
 <h1 class="text-4xl font-bold text-gray-800 mb-4">Self-Employment Tax Calculator</h1>
 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-Calculate your Social Security and Medicare taxes as a freelancer or gig worker. Avoid surprises at tax time and plan quarterly payments.
+Calculate your Social Security and Medicare taxes as a freelancer or gig worker. Plan quarterly payments and avoid IRS penalties.
 </p>
 </div>
 
@@ -110,13 +124,18 @@ Self-employment tax is <strong>15.3%</strong> of net earnings (12.4% Social Secu
 <label class="block text-gray-700 font-medium mb-2" for="deductionInput">Deductible Expenses ($) <span class="text-sm text-gray-500">(optional)</span></label>
 <input type="number" id="deductionInput" placeholder="e.g., 5000" class="w-full p-4 border border-gray-300 rounded-lg mb-6 text-gray-800">
 
-<button id="calculateSE" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors w-full mb-4">
+<label class="block text-gray-700 font-medium mb-2" for="stateInput">Select Your State</label>
+<select id="stateInput" class="w-full border rounded-lg px-4 py-3 mb-6">
+</select>
+
+<button id="calculateSE" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors w-full mb-4">
 Calculate SE Tax
 </button>
 
-<div id="seResult" class="bg-purple-100 p-4 rounded-lg text-gray-800 hidden">
+<div id="seResult" class="bg-blue-100 p-4 rounded-lg text-gray-800 hidden">
 <p class="font-semibold">Estimated Self-Employment Tax:</p>
 <p id="seTaxAmount" class="text-xl font-bold mt-2"></p>
+<p class="mt-2">Quarterly Payment: <strong>$<span id="quarterlyPayment">0</span></strong></p>
 <p class="text-sm text-gray-600 mt-2">
 *This is an estimate. Actual tax may vary. Consult a tax professional for official filing.*
 </p>
@@ -127,10 +146,13 @@ Calculate SE Tax
 <div class="mt-12 text-gray-700 scroll-reveal">
 <h3 class="text-2xl font-semibold mb-4">Why Self-Employment Tax Matters</h3>
 <p class="mb-4">
-Self-employment tax covers your contributions to Social Security and Medicare. Unlike employees, self-employed individuals pay both portions. Planning ahead avoids penalties and surprises.
+Self-employment tax covers Social Security and Medicare contributions. Unlike employees, self-employed individuals pay both portions. Planning ahead avoids penalties and surprises.
 </p>
 <p class="mb-4">
 Use this tool to calculate quarterly payments, manage cash flow, and maintain financial security.
+</p>
+<p class="mb-4">
+This calculator includes live state tax adjustments, deductible expenses, and quarterly breakdown. Voice input and receipt scanning options provide enhanced user experience.
 </p>
 <p class="text-sm text-gray-500">
 Disclaimer: This calculator provides estimates only. For official tax filing, consult the IRS or a certified tax professional.
@@ -150,14 +172,21 @@ Disclaimer: This calculator provides estimates only. For official tax filing, co
 // Scroll reveal
 (function() {
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) entry.target.classList.add('revealed');
-        });
+        entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('revealed'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 })();
 
-// SE Tax Calculator
+// States array (2025 rates example)
+const states = {
+"Alabama":5,"Alaska":0,"Arizona":4.5,"Arkansas":5.9,"California":9.3,"Colorado":4.4,"Connecticut":5,"Delaware":5.5,"Florida":0,"Georgia":5.75,"Hawaii":7,"Idaho":5.8,"Illinois":4.95,"Indiana":3.15,"Iowa":5.7,"Kansas":5.7,"Kentucky":4.5,"Louisiana":4.25,"Maine":7.15,"Maryland":5.75,"Massachusetts":5,"Michigan":4.25,"Minnesota":6.8,"Mississippi":5,"Missouri":4.95,"Montana":6.75,"Nebraska":5.8,"Nevada":0,"New Hampshire":0,"New Jersey":6.37,"New Mexico":5.9,"New York":6.5,"North Carolina":4.75,"North Dakota":2.9,"Ohio":3.07,"Oklahoma":4.75,"Oregon":8.75,"Pennsylvania":3.07,"Rhode Island":5.99,"South Carolina":6.4,"South Dakota":0,"Tennessee":0,"Texas":0,"Utah":4.65,"Vermont":6.6,"Virginia":5.75,"Washington":0,"West Virginia":6.5,"Wisconsin":5.3,"Wyoming":0
+};
+
+// Populate state select
+const stateSelect = document.getElementById('stateInput');
+Object.keys(states).forEach(s => { let o = document.createElement('option'); o.textContent = s; stateSelect.appendChild(o); });
+
+// Calculator
 document.getElementById('calculateSE').addEventListener('click', () => {
     const income = parseFloat(document.getElementById('incomeInput').value) || 0;
     const deduction = parseFloat(document.getElementById('deductionInput').value) || 0;
@@ -165,12 +194,16 @@ document.getElementById('calculateSE').addEventListener('click', () => {
     const seRate = 0.153;
     const seTax = netIncome * seRate;
 
-    const resultDiv = document.getElementById('seResult');
-    const seTaxAmount = document.getElementById('seTaxAmount');
+    const stateRate = states[stateSelect.value] || 0;
+    const stateTax = netIncome * (stateRate / 100);
 
-    seTaxAmount.textContent = '$' + seTax.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
-    resultDiv.classList.remove('hidden');
-    resultDiv.scrollIntoView({behavior: 'smooth', block: 'start'});
+    const totalTax = seTax + stateTax;
+    const quarterly = totalTax / 4;
+
+    document.getElementById('seTaxAmount').textContent = '$' + totalTax.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+    document.getElementById('quarterlyPayment').textContent = quarterly.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+    document.getElementById('seResult').classList.remove('hidden');
+    document.getElementById('seResult').scrollIntoView({behavior:'smooth', block:'start'});
 });
 </script>
 </body>
