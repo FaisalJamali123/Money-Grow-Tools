@@ -194,6 +194,21 @@ body {
   color: #2563eb;
   transform: translateX(4px);
 }
+
+/* Feature Image Placeholder Style - Matching Grocery Article Format */
+.feature-image-placeholder {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0;
+  min-height: 400px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
 </style>
 <base target="_blank">
 </head>
@@ -237,14 +252,15 @@ body {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <article class="max-w-4xl mx-auto">
       
-      <!-- Featured Image -->
+      <!-- Featured Image - Fixed with Grocery Article Style -->
       <div class="mb-8 rounded-xl overflow-hidden shadow-lg">
-        <img 
-          src="https://images.unsplash.com/photo-1554224311-beee460c201f?w=1200&h=400&fit=crop&q=80" 
-          alt="Calendar showing missed quarterly tax payment deadline with IRS penalty notice"
-          class="w-full h-[400px] object-cover"
-          onerror="this.src='https://images.unsplash.com/photo-1554224311-beee460c201f?w=1200&h=400&fit=crop'; this.onerror=null;"
-        >
+        <div class="feature-image-placeholder">
+          <div class="text-center">
+            <i class="fas fa-calendar-times text-6xl mb-4"></i>
+            <p>Missed Quarterly Tax Payment</p>
+            <p class="text-sm opacity-75 mt-2">(Calendar with red X mark showing missed deadline)</p>
+          </div>
+        </div>
       </div>
 
       <!-- Article Header -->
@@ -945,8 +961,7 @@ body {
             </p>
 
             <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-8 rounded-xl text-white text-center my-8">
-              <h3 class="text-2xl font-bold mb-4">Ready to Get Back on Track?</h3>
-              <p class="mb-6 opacity-90">Calculate your quarterly payments and never miss another deadline.</p>
+              <h3 class="text-2xl font-bold mb-4">Ready to Get Back on Track?</n              <p class="mb-6 opacity-90">Calculate your quarterly payments and never miss another deadline.</p>
               <a href="../quarterly-tax-calculator.html" class="inline-block px-8 py-4 bg-white text-blue-700 font-bold rounded-lg hover:bg-gray-100 transition">
                 Use Free Quarterly Tax Calculator →
               </a>
