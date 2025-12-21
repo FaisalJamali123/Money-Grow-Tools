@@ -4,17 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
+    <!-- ROBOTS META TAG -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
     <!-- SEO META TAGS -->
     <title>Free 1099 Tax Calculator 2025 | Self-Employment Tax Estimator</title>
     <meta name="description" content="Calculate your 1099 taxes instantly with our free calculator. Estimate federal, state, and self-employment tax for freelancers and gig workers. No signup required."/>
     <meta name="keywords" content="1099 tax calculator, self employment tax calculator, quarterly tax calculator, freelance tax estimator, gig worker taxes"/>
     <link rel="canonical" href="https://moneygrowtools.com/"/>
     
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
     <!-- OPEN GRAPH -->
     <meta property="og:title" content="Free 1099 Tax Calculator | Money Grow Tools"/>
     <meta property="og:description" content="Calculate your 1099 taxes in 60 seconds. Includes federal, state, and self-employment tax estimates."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://faisaljamali123.github.io/Money-Grow-Tools/"/>
+    <meta property="og:url" content="https://moneygrowtools.com/"/>
+    <meta property="og:image" content="https://moneygrowtools.com/og-image.jpg"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:site_name" content="Money Grow Tools"/>
+    <meta property="og:locale" content="en_US"/>
+    
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free 1099 Tax Calculator 2025 | Self-Employment Tax Estimator">
+    <meta name="twitter:description" content="Calculate your 1099 taxes instantly with our free calculator. Estimate federal, state, and self-employment tax for freelancers and gig workers.">
+    <meta name="twitter:image" content="https://moneygrowtools.com/og-image.jpg">
+    <meta name="twitter:site" content="@moneygrowtools">
+    <meta name="twitter:creator" content="@moneygrowtools">
 
     <!-- SCHEMA MARKUP - WebApplication -->
     <script type="application/ld+json">
@@ -24,7 +45,7 @@
       "name": "Money Grow Tools",
       "applicationCategory": "FinanceApplication",
       "description": "Free 1099 tax calculator with state tax support for freelancers and self-employed workers",
-      "url": "https://faisaljamali123.github.io/Money-Grow-Tools/",
+      "url": "https://moneygrowtools.com/",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -34,7 +55,35 @@
         "@type": "AggregateRating",
         "ratingValue": "4.8",
         "ratingCount": "247"
+      },
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "softwareVersion": "1.0",
+      "author": {
+        "@type": "Organization",
+        "name": "Money Grow Tools"
       }
+    }
+    </script>
+
+    <!-- SCHEMA MARKUP - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Money Grow Tools",
+      "url": "https://moneygrowtools.com/",
+      "logo": "https://moneygrowtools.com/logo.png",
+      "description": "Free tax calculators for self-employed workers, freelancers, and gig economy professionals.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@moneygrowtools.com",
+        "contactType": "Customer Support"
+      },
+      "sameAs": [
+        "https://twitter.com/moneygrowtools",
+        "https://www.reddit.com/r/moneygrowtools"
+      ]
     }
     </script>
 
@@ -142,13 +191,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
             <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-chart-line text-white text-lg"></i>
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center" aria-label="Money Grow Tools Logo">
+                    <i class="fas fa-chart-line text-white text-lg" aria-hidden="true"></i>
                 </div>
                 <span class="text-xl font-bold text-gray-800">Money Grow Tools</span>
             </div>
             
-            <nav class="hidden md:flex space-x-8">
+            <nav class="hidden md:flex space-x-8" aria-label="Main navigation">
                 <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Home</a>
                 <a href="#tools" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Tools</a>
                 <a href="#blog" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Blog</a>
@@ -175,7 +224,7 @@
                 </p>
                 <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-lg">
                     <p class="text-gray-700">
-                        <i class="fas fa-exclamation-triangle text-blue-600 mr-2"></i>
+                        <i class="fas fa-exclamation-triangle text-blue-600 mr-2" aria-hidden="true"></i>
                         <strong>73% of freelancers overpay or underpay taxes</strong> because they forget that 1099 income gets taxed twice: 15.3% self-employment tax + 10-37% income tax + up to 13.3% state tax.
                     </p>
                 </div>
@@ -192,10 +241,10 @@
                 <div class="floating-animation">
                     <div class="tax-banner">
                         <h3 class="banner-title">Find Your State Tax Rate</h3>
-                        <label class="label">Choose Your State</label>
-                        <input type="text" id="stateInput" placeholder="Start typing..." oninput="filterStates()" autocomplete="off">
-                        <ul id="stateList" class="state-list"></ul>
-                        <button class="btn-check" onclick="applyState()">Check Tax Rate</button>
+                        <label for="stateInput" class="label">Choose Your State</label>
+                        <input type="text" id="stateInput" placeholder="Start typing..." oninput="filterStates()" autocomplete="off" aria-label="Select your state for tax calculation">
+                        <ul id="stateList" class="state-list" role="listbox"></ul>
+                        <button class="btn-check" onclick="applyState()" aria-label="Check tax rate for selected state">Check Tax Rate</button>
                         <p class="text-xs text-gray-500 mt-3 text-center">
                             ✓ All 50 states supported<br>
                             ✓ 2025 tax rates included
@@ -206,7 +255,6 @@
         </div>
     </div>
 </section>
-
 <!-- TRUST INDICATORS -->
 <section class="py-8 bg-white border-t border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -280,7 +328,7 @@
             
             <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded">
                 <p class="text-red-800 font-semibold">
-                    <i class="fas fa-calculator mr-2"></i>
+                    <i class="fas fa-calculator mr-2" aria-hidden="true"></i>
                     That's up to <strong>65.6% total</strong> if you're in California earning $100k+
                 </p>
             </div>
@@ -306,65 +354,65 @@
         
         <div class="grid md:grid-cols-3 gap-8">
 
-            <div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
-                <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-file-invoice-dollar text-blue-600 text-2xl"></i>
+            <article class="tool-card bg-white rounded-xl p-8 scroll-reveal">
+                <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6" aria-label="1099 Tax Calculator Icon">
+                    <i class="fas fa-file-invoice-dollar text-blue-600 text-2xl" aria-hidden="true"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-3">1099 Tax Calculator</h3>
                 <p class="text-gray-600 mb-4">
                     <strong>Estimate your total tax bill</strong> from freelance income. Includes federal, state, and self-employment tax in one view.
                 </p>
                 <ul class="space-y-2 mb-6 text-sm text-gray-600">
-                    <li><i class="fas fa-check text-green-500 mr-2"></i>All 50 states supported</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i>Shows quarterly payment amounts</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i>Calculates 92.35% deduction automatically</li>
+                    <li><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>All 50 states supported</li>
+                    <li><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Shows quarterly payment amounts</li>
+                    <li><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Calculates 92.35% deduction automatically</li>
                 </ul>
                 <a href="1099-Tax-Calculator.html">
                     <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
                         Try 1099 Calculator →
                     </button>
                 </a>
-            </div>
+            </article>
 
-            <div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
-                <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-calendar-alt text-green-600 text-2xl"></i>
+            <article class="tool-card bg-white rounded-xl p-8 scroll-reveal">
+                <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6" aria-label="Quarterly Tax Calculator Icon">
+                    <i class="fas fa-calendar-alt text-green-600 text-2xl" aria-hidden="true"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-3">Quarterly Tax Calculator</h3>
                 <p class="text-gray-600 mb-4">
                     <strong>Never miss a payment deadline.</strong> Calculate exactly how much to pay the IRS each quarter to avoid penalties.
                 </p>
                 <ul class="space-y-2 mb-6 text-sm text-gray-600">
-                    <li><i class="fas fa-check text-green-500 mr-2"></i>Auto-shows next deadline</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i>Penalty estimator if late</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i>Download payment calendar (.ics)</li>
+                    <li><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Auto-shows next deadline</li>
+                    <li><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Penalty estimator if late</li>
+                    <li><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Download payment calendar (.ics)</li>
                 </ul>
                 <a href="Quarterly-Tax-Calculator.html">
                     <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
                         Try Quarterly Calculator →
                     </button>
                 </a>
-            </div>
+            </article>
 
-            <div class="tool-card bg-white rounded-xl p-8 scroll-reveal">
-                <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-briefcase text-purple-600 text-2xl"></i>
+            <article class="tool-card bg-white rounded-xl p-8 scroll-reveal">
+                <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6" aria-label="Self-Employment Tax Calculator Icon">
+                    <i class="fas fa-briefcase text-purple-600 text-2xl" aria-hidden="true"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-3">Self-Employment Tax Calculator</h3>
                 <p class="text-gray-600 mb-4">
                     <strong>Understand the 15.3% rule.</strong> See your Social Security and Medicare tax breakdown before you file.
                 </p>
                 <ul class="space-y-2 mb-6 text-sm text-gray-600">
-                    <li><i class="fas fa-check text-green-500 mr-2"></i>Shows why only 92.35% is taxed</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i>Calculates QBI deduction eligibility</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i>Compares 1099 vs W-2 burden</li>
+                    <li><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Shows why only 92.35% is taxed</li>
+                    <li><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Calculates QBI deduction eligibility</li>
+                    <li><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Compares 1099 vs W-2 burden</li>
                 </ul>
                 <a href="Self-Employment-Tax-Calculator.html">
                     <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
                         Try SE Tax Calculator →
                     </button>
                 </a>
-            </div>
+            </article>
 
         </div>
     </div>
@@ -384,9 +432,9 @@
             <table class="comparison-table">
                 <thead>
                     <tr>
-                        <th>Feature</th>
-                        <th>Other Calculators</th>
-                        <th class="bg-blue-600">Money Grow Tools</th>
+                        <th scope="col">Feature</th>
+                        <th scope="col">Other Calculators</th>
+                        <th scope="col" class="bg-blue-600">Money Grow Tools</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -433,14 +481,14 @@
         <div class="text-center mb-16 scroll-reveal">
             <h2 class="text-4xl font-bold text-gray-800 mb-4">How It Works</h2>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                No sign-ups, no complexity — get accurate tax estimates in 4 simple steps
+                No sign-ups, no complexity – get accurate tax estimates in 4 simple steps
             </p>
         </div>
         
         <div class="grid md:grid-cols-4 gap-8">
 
             <div class="step-item text-center scroll-reveal">
-                <div class="step-icon w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="step-icon w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6" aria-label="Step 1">
                     <span class="text-white text-2xl font-bold">1</span>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-3">Pick Your Calculator</h3>
@@ -450,7 +498,7 @@
             </div>
 
             <div class="step-item text-center scroll-reveal">
-                <div class="step-icon w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="step-icon w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6" aria-label="Step 2">
                     <span class="text-white text-2xl font-bold">2</span>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-3">Enter Your Income</h3>
@@ -460,7 +508,7 @@
             </div>
 
             <div class="step-item text-center scroll-reveal">
-                <div class="step-icon w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="step-icon w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6" aria-label="Step 3">
                     <span class="text-white text-2xl font-bold">3</span>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-3">Get Instant Results</h3>
@@ -470,7 +518,7 @@
             </div>
 
             <div class="step-item text-center scroll-reveal">
-                <div class="step-icon w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="step-icon w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6" aria-label="Step 4">
                     <span class="text-white text-2xl font-bold">4</span>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-3">Download & Save</h3>
@@ -484,7 +532,7 @@
         <div class="mt-12 text-center scroll-reveal">
             <div class="inline-block bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
                 <p class="text-gray-700 text-lg">
-                    <i class="fas fa-lock text-blue-600 mr-2"></i>
+                    <i class="fas fa-lock text-blue-600 mr-2" aria-hidden="true"></i>
                     <strong>Your privacy matters:</strong> We don't store your financial data. All calculations happen in your browser.
                 </p>
             </div>
@@ -504,43 +552,43 @@
         
         <div class="grid md:grid-cols-3 gap-8">
             <article class="bg-white rounded-xl shadow-lg overflow-hidden scroll-reveal hover:shadow-xl transition-shadow">
-                <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                    <i class="fas fa-piggy-bank text-white text-4xl"></i>
+                <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center" aria-label="Tax Savings Guide">
+                    <i class="fas fa-piggy-bank text-white text-4xl" aria-hidden="true"></i>
                 </div>
                 <div class="p-6">
                     <div class="text-sm text-blue-600 font-medium mb-2">Tax Savings</div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">How Much to Set Aside for 1099 Taxes in 2025</h3>
                     <p class="text-gray-600 mb-4">The simple rule: save 25-35% of every payment. Learn exactly how much based on your income bracket and state.</p>
                     <a href="How-Much-to-Set-Aside-for-1099-Taxes-in-2025.html" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
-                        Read Guide <i class="fas fa-arrow-right ml-2"></i>
+                        Read Guide <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
                     </a>
                 </div>
             </article>
             
             <article class="bg-white rounded-xl shadow-lg overflow-hidden scroll-reveal hover:shadow-xl transition-shadow">
-                <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
-                    <i class="fas fa-exclamation-triangle text-white text-4xl"></i>
+                <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center" aria-label="Avoid Penalties Guide">
+                    <i class="fas fa-exclamation-triangle text-white text-4xl" aria-hidden="true"></i>
                 </div>
                 <div class="p-6">
                     <div class="text-sm text-red-600 font-medium mb-2">Avoid Penalties</div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">What Happens If I Miss Quarterly Tax Payment in 2025</h3>
                     <p class="text-gray-600 mb-4">IRS charges 0.5% per month on unpaid taxes. A $10,000 bill can cost you $1,100+ in penalties. Here's how to catch up.</p>
                     <a href="What-Happens-If-I-Miss-Quarterly-Tax-Payment-in-2025.html" class="text-red-600 hover:text-red-700 font-medium inline-flex items-center">
-                        Read Guide <i class="fas fa-arrow-right ml-2"></i>
+                        Read Guide <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
                     </a>
                 </div>
             </article>
             
             <article class="bg-white rounded-xl shadow-lg overflow-hidden scroll-reveal hover:shadow-xl transition-shadow">
-                <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                    <i class="fas fa-receipt text-white text-4xl"></i>
+                <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center" aria-label="Deductions Guide">
+                    <i class="fas fa-receipt text-white text-4xl" aria-hidden="true"></i>
                 </div>
                 <div class="p-6">
                     <div class="text-sm text-green-600 font-medium mb-2">Deductions</div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Can I Write Off Groceries as a 1099 Worker?</h3>
                     <p class="text-gray-600 mb-4">The surprising answer depends on your profession. Food bloggers can, but most freelancers can't. See the full breakdown.</p>
                     <a href="Can-I-Write-Off-Groceries-as-a-1099-Worker.html" class="text-green-600 hover:text-green-700 font-medium inline-flex items-center">
-                        Read Guide <i class="fas fa-arrow-right ml-2"></i>
+                        Read Guide <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
                     </a>
                 </div>
             </article>
@@ -561,8 +609,8 @@
         <div class="grid md:grid-cols-3 gap-8">
             <div class="testimonial-card rounded-xl p-8 scroll-reveal">
                 <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-user text-blue-600"></i>
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4" aria-label="Sarah M.">
+                        <i class="fas fa-user text-blue-600" aria-hidden="true"></i>
                     </div>
                     <div>
                         <h4 class="font-semibold text-gray-800">Sarah M.</h4>
@@ -572,19 +620,19 @@
                 <p class="text-gray-600 mb-4">
                     "I was setting aside only 15% and got hit with a $8,000 bill in April. This calculator showed me I needed to save 32% because of my state. Game-changer!"
                 </p>
-                <div class="flex text-yellow-500">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="flex text-yellow-500" aria-label="5 star rating">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
                 </div>
             </div>
             
             <div class="testimonial-card rounded-xl p-8 scroll-reveal">
                 <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-user text-green-600"></i>
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4" aria-label="James K.">
+                        <i class="fas fa-user text-green-600" aria-hidden="true"></i>
                     </div>
                     <div>
                         <h4 class="font-semibold text-gray-800">James K.</h4>
@@ -594,19 +642,19 @@
                 <p class="text-gray-600 mb-4">
                     "Finally a calculator that includes my state tax. Every other tool said I'd owe $5,000 but I actually owed $7,200. This one was accurate."
                 </p>
-                <div class="flex text-yellow-500">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="flex text-yellow-500" aria-label="5 star rating">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
                 </div>
             </div>
             
             <div class="testimonial-card rounded-xl p-8 scroll-reveal">
                 <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-user text-purple-600"></i>
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4" aria-label="Maria R.">
+                        <i class="fas fa-user text-purple-600" aria-hidden="true"></i>
                     </div>
                     <div>
                         <h4 class="font-semibold text-gray-800">Maria R.</h4>
@@ -616,18 +664,17 @@
                 <p class="text-gray-600 mb-4">
                     "The quarterly calculator saved me from $600 in penalties. It showed me exactly when and how much to pay the IRS. So simple to use!"
                 </p>
-                <div class="flex text-yellow-500">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="flex text-yellow-500" aria-label="5 star rating">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <!-- FAQ SECTION -->
 <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-700">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -642,67 +689,67 @@
             <!-- FAQ 1 -->
             <div class="faq-item bg-white/10 backdrop-blur-md rounded-lg p-6 cursor-pointer transition hover:bg-white/20">
                 <div class="flex justify-between items-center">
-                    <h4 class="text-white text-lg font-semibold">How much tax do I owe on 1099 income?</h4>
+                    <h3 class="text-white text-lg font-semibold">How much tax do I owe on 1099 income?</h3>
                     <span class="text-white text-2xl font-bold">+</span>
                 </div>
-                <p class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
+                <div class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
                     1099 contractors pay <strong>15.3% self-employment tax</strong> plus <strong>10-37% federal income tax</strong> plus <strong>0-13.3% state income tax</strong> depending on your location. Total can range from 25-65% of your income. Use our calculator to see your exact amount.
-                </p>
+                </div>
             </div>
 
             <!-- FAQ 2 -->
             <div class="faq-item bg-white/10 backdrop-blur-md rounded-lg p-6 cursor-pointer transition hover:bg-white/20">
                 <div class="flex justify-between items-center">
-                    <h4 class="text-white text-lg font-semibold">Do I need to pay quarterly taxes on 1099 income?</h4>
+                    <h3 class="text-white text-lg font-semibold">Do I need to pay quarterly taxes on 1099 income?</h3>
                     <span class="text-white text-2xl font-bold">+</span>
                 </div>
-                <p class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
+                <div class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
                     Yes, if you expect to owe <strong>$1,000 or more</strong> in taxes for the year. The IRS requires quarterly estimated tax payments due <strong>April 15, June 15, September 15, and January 15</strong>. Missing these deadlines results in penalties of 0.5% per month.
-                </p>
+                </div>
             </div>
 
             <!-- FAQ 3 -->
             <div class="faq-item bg-white/10 backdrop-blur-md rounded-lg p-6 cursor-pointer transition hover:bg-white/20">
                 <div class="flex justify-between items-center">
-                    <h4 class="text-white text-lg font-semibold">What is the self-employment tax rate for 2025?</h4>
+                    <h3 class="text-white text-lg font-semibold">What is the self-employment tax rate for 2025?</h3>
                     <span class="text-white text-2xl font-bold">+</span>
                 </div>
-                <p class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
+                <div class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
                     The self-employment tax rate is <strong>15.3% total</strong>: 12.4% for Social Security (on first $168,600 of income) and 2.9% for Medicare (unlimited). High earners ($200k+ single, $250k+ married) pay an additional 0.9% Medicare surtax.
-                </p>
+                </div>
             </div>
 
             <!-- FAQ 4 -->
             <div class="faq-item bg-white/10 backdrop-blur-md rounded-lg p-6 cursor-pointer transition hover:bg-white/20">
                 <div class="flex justify-between items-center">
-                    <h4 class="text-white text-lg font-semibold">Can I deduct business expenses from 1099 income?</h4>
+                    <h3 class="text-white text-lg font-semibold">Can I deduct business expenses from 1099 income?</h3>
                     <span class="text-white text-2xl font-bold">+</span>
                 </div>
-                <p class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
+                <div class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
                     <strong>Yes!</strong> Common deductions include: home office, vehicle mileage ($0.67/mile for 2025), software subscriptions, phone and internet (business portion), health insurance premiums, and retirement contributions (SEP-IRA, Solo 401k). Enter your deductions in our calculator to see tax savings.
-                </p>
+                </div>
             </div>
 
             <!-- FAQ 5 -->
             <div class="faq-item bg-white/10 backdrop-blur-md rounded-lg p-6 cursor-pointer transition hover:bg-white/20">
                 <div class="flex justify-between items-center">
-                    <h4 class="text-white text-lg font-semibold">Which states have no income tax for 1099 workers?</h4>
+                    <h3 class="text-white text-lg font-semibold">Which states have no income tax for 1099 workers?</h3>
                     <span class="text-white text-2xl font-bold">+</span>
                 </div>
-                <p class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
+                <div class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
                     <strong>Nine states have no income tax:</strong> Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, Wyoming, and New Hampshire. If you live in these states, you only pay federal and self-employment tax (no state tax added).
-                </p>
+                </div>
             </div>
             
             <!-- FAQ 6 -->
             <div class="faq-item bg-white/10 backdrop-blur-md rounded-lg p-6 cursor-pointer transition hover:bg-white/20">
                 <div class="flex justify-between items-center">
-                    <h4 class="text-white text-lg font-semibold">What happens if I don't pay quarterly taxes?</h4>
+                    <h3 class="text-white text-lg font-semibold">What happens if I don't pay quarterly taxes?</h3>
                     <span class="text-white text-2xl font-bold">+</span>
                 </div>
-                <p class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
+                <div class="faq-content text-blue-50 mt-4 hidden leading-relaxed">
                     The IRS charges a <strong>0.5% penalty per month</strong> on unpaid taxes (6% annually), plus interest at the federal short-term rate +3%. Example: If you owe $10,000 and miss quarterly payments for a year, you'll pay <strong>$600-$1,100+ in penalties</strong> on top of the tax.
-                </p>
+                </div>
             </div>
         </div>
     </div>
@@ -815,14 +862,22 @@
     }, observerOptions);
     document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 
-    // FAQ toggle
+    // FAQ toggle - FIXED VERSION
     document.querySelectorAll('.faq-item').forEach(item => {
         item.addEventListener('click', () => {
             const content = item.querySelector('.faq-content');
             const icon = item.querySelector('span');
-            const isHidden = content.classList.toggle('hidden');
-            content.classList.toggle('animate-fadeIn', !isHidden);
-            icon.textContent = isHidden ? '+' : '−';
+            const isHidden = content.classList.contains('hidden');
+            
+            if (isHidden) {
+                content.classList.remove('hidden');
+                content.classList.add('animate-fadeIn');
+                icon.textContent = '−';
+            } else {
+                content.classList.add('hidden');
+                content.classList.remove('animate-fadeIn');
+                icon.textContent = '+';
+            }
         });
     });
 
@@ -849,7 +904,10 @@
         let input = document.getElementById("stateInput").value.toLowerCase();
         let list = document.getElementById("stateList");
         list.innerHTML = "";
-        if (!input) { list.style.display = "none"; return; }
+        if (!input) { 
+            list.style.display = "none"; 
+            return; 
+        }
         let filtered = states.filter(s => s.toLowerCase().startsWith(input));
         filtered.forEach(state => {
             let item = document.createElement("li");
@@ -883,6 +941,7 @@
         );
     }
 
+    // Close state list when clicking outside
     document.addEventListener('click', function(e) {
         const list = document.getElementById('stateList');
         const input = document.getElementById('stateInput');
