@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- Homepage -->
+<url>
+  <loc>https://moneygrowtools.com/</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+
+<!-- Calculator Pages (High Priority - Main Product) -->
+<url>
+  <loc>https://moneygrowtools.com/1099-Tax-Calculator.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://moneygrowtools.com/Quarterly-Tax-Calculator.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://moneygrowtools.com/Self-Employment-Tax-Calculator.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- Blog Articles (Content Marketing) -->
+<url>
+  <loc>https://moneygrowtools.com/How-Much-to-Set-Aside-for-1099-Taxes-in-2025.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://moneygrowtools.com/What-Happens-If-I-Miss-Quarterly-Tax-Payment-in-2025.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://moneygrowtools.com/Can-I-Write-Off-Groceries-as-a-1099-Worker.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Static/Legal Pages -->
+<url>
+  <loc>https://moneygrowtools.com/About-Us.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.5</priority>
+</url>
+
+<url>
+  <loc>https://moneygrowtools.com/Contact-Us.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.5</priority>
+</url>
+
+<url>
+  <loc>https://moneygrowtools.com/Privacy-Policy.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.3</priority>
+</url>
+
+<url>
+  <loc>https://moneygrowtools.com/Term-of-services.html</loc>
+  <lastmod>2024-12-21</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.3</priority>
+</url>
+
+</urlset>
