@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://moneygrowtools.com/sitemap.xml
+
+# Disallow unnecessary files
+# Disallow: /admin/
+# Disallow: /private/
