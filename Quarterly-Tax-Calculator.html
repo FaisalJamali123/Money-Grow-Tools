@@ -1,347 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quarterly Tax Calculator – Money Grow Tools</title>
-<meta name="description" content="Estimate your quarterly tax payments for freelancers and 1099 contractors with this free calculator. No signup required. Instant results with IRS due dates.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <!-- Core SEO -->
+    <title>Quarterly Tax Calculator – Money Grow Tools</title>
+    <meta name="description" content="Estimate your quarterly tax payments for freelancers and 1099 contractors with this free calculator. No signup required. Instant results with IRS due dates.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://moneygrowtools.com/quarterly-tax-calculator.html">
 
-<!-- Tesseract.js -->
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moneygrowtools.com/quarterly-tax-calculator.html">
+    <meta property="og:title" content="Quarterly Tax Calculator – Money Grow Tools">
+    <meta property="og:description" content="Estimate your quarterly tax payments for freelancers and 1099 contractors with this free calculator. No signup required. Instant results with IRS due dates.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://moneygrowtools.com/quarterly-tax-calculator.html">
+    <meta name="twitter:title" content="Quarterly Tax Calculator – Money Grow Tools">
+    <meta name="twitter:description" content="Estimate your quarterly tax payments for freelancers and 1099 contractors with this free calculator. No signup required. Instant results with IRS due dates.">
 
-<!-- FAQ Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a quarterly tax payment?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Quarterly tax payments are estimated taxes you pay four times a year if you are self-employed. Paying on time avoids IRS penalties and interest."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much should I pay each quarter?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This calculator divides your total annual estimated tax into four equal payments based on IRS deadlines. Adjust for previous payments to stay accurate."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What deductions can I include?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Deductible expenses include home office, mileage, internet, software, marketing, equipment, and other business-related costs. Accurately including these reduces your taxable income."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if I miss a payment?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Missing quarterly payments can result in penalties and interest. This calculator can help you estimate your late fees and adjust future payments."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does this replace a CPA?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. This tool is for estimation purposes only. Always consult a professional CPA for personalized tax advice."
-      }
-    }
-  ]
-}
-</script>
+    <!-- Pre-connect for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-<!-- WebApplication Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Quarterly Tax Calculator",
-  "description": "Free online calculator to estimate quarterly tax payments for freelancers and 1099 contractors",
-  "url": "https://www.moneygrowtools.com/quarterly-tax-calculator.html",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "featureList": [
-    "Quarterly tax calculation",
-    "State tax estimation",
-    "Self-employment tax calculator",
-    "IRS due date tracking",
-    "Deduction calculator"
-  ],
-  "author": {
-    "@type": "Organization",
-    "name": "Money Grow Tools"
-  }
-}
-</script>
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" rel="noopener">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- BreadcrumbList Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+    <!-- Schema -->
+    <script type="application/ld+json">
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.moneygrowtools.com/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
       "name": "Quarterly Tax Calculator",
-      "item": "https://www.moneygrowtools.com/quarterly-tax-calculator.html"
+      "description": "Free online calculator to estimate quarterly tax payments for freelancers and 1099 contractors",
+      "url": "https://moneygrowtools.com/quarterly-tax-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": ["Quarterly tax calculation", "State tax estimation", "Self-employment tax calculator", "IRS due date tracking", "Deduction calculator"],
+      "author": { "@type": "Organization", "name": "Money Grow Tools" }
     }
-  ]
-}
-</script>
+    </script>
 
-<style>
-body { font-family: 'Inter', sans-serif; }
-.reveal { opacity:0; transform:translateY(30px); transition:all .6s ease; }
-.reveal.active { opacity:1; transform:none; }
-.accordion-content { max-height:0; overflow:hidden; transition:max-height .4s ease; }
-</style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a quarterly tax payment?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Quarterly tax payments are estimated taxes you pay four times a year if you are self-employed. Paying on time avoids IRS penalties and interest." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much should I pay each quarter?",
+          "acceptedAnswer": { "@type": "Answer", "text": "This calculator divides your total annual estimated tax into four equal payments based on IRS deadlines. Adjust for previous payments to stay accurate." }
+        },
+        {
+          "@type": "Question",
+          "name": "What deductions can I include?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Deductible expenses include home office, mileage, internet, software, marketing, equipment, and other business-related costs. Accurately including these reduces your taxable income." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I miss a payment?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Missing quarterly payments can result in penalties and interest. This calculator can help you estimate your late fees and adjust future payments." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this replace a CPA?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. This tool is for estimation purposes only. Always consult a professional CPA for personalized tax advice." }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://moneygrowtools.com/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Quarterly Tax Calculator", "item": "https://moneygrowtools.com/quarterly-tax-calculator.html" }
+      ]
+    }
+    </script>
+
+    <style>
+        body{font-family:'Inter',sans-serif}
+        .reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
+        .reveal.active{opacity:1;transform:none}
+        .accordion-content{max-height:0;overflow:hidden;transition:max-height .4s ease}
+    </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
 
-<!-- HEADER -->
+<!-- Header -->
 <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center py-4">
-      <div class="flex items-center space-x-2">
-        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-          <i class="fas fa-chart-line text-white text-lg"></i>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+            <a href="https://moneygrowtools.com/" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center" aria-hidden="true"><i class="fas fa-chart-line text-white text-lg"></i></div>
+                <span class="text-xl font-bold text-gray-800">Money Grow Tools</span>
+            </a>
+            <nav class="hidden md:flex space-x-8" aria-label="Main navigation">
+                <a href="https://moneygrowtools.com/" class="text-gray-600 hover:text-blue-600 font-medium transition">Home</a>
+                <a href="About-Us.html" class="text-gray-600 hover:text-blue-600 font-medium transition">About</a>
+                <a href="Contact-Us.html" class="text-gray-600 hover:text-blue-600 font-medium transition">Contact</a>
+            </nav>
         </div>
-        <span class="text-xl font-bold text-gray-800">Money Grow Tools</span>
-      </div>
-      <nav class="hidden md:flex space-x-8">
-        <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
-        <a href="About-Us.html" class="text-gray-600 hover:text-blue-600 font-medium">About</a>
-        <a href="Contact-Us.html" class="text-gray-600 hover:text-blue-600 font-medium">Contact</a>
-      </nav>
     </div>
-  </div>
 </header>
 
-<!-- HERO -->
-<section class="pt-36 pb-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white reveal">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Quarterly Tax Calculator</h1>
-    <p class="max-w-3xl mx-auto text-lg opacity-90">Instantly calculate your quarterly tax payments including federal, state, and self-employment taxes. Perfect for freelancers and 1099 contractors. No signup required.</p>
-    <div class="mt-6 flex justify-center gap-6 text-sm font-medium">
-      <span><i class="fas fa-check-circle mr-1"></i>No signup required</span>
-      <span><i class="fas fa-calendar-alt mr-1"></i>IRS due dates</span>
-      <span><i class="fas fa-bolt mr-1"></i>Instant results</span>
-    </div>
-    <a href="#calculator" class="mt-6 inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold">Start Calculating</a>
-  </div>
-</section>
+<main>
+    <!-- Hero -->
+    <section class="pt-36 pb-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Quarterly Tax Calculator</h1>
+            <p class="max-w-3xl mx-auto text-lg opacity-90 mb-6">Instantly calculate your quarterly tax payments including federal, state, and self-employment taxes. Perfect for freelancers and 1099 contractors. No signup required.</p>
+            <div class="flex flex-wrap justify-center gap-6 text-sm font-medium"><span><i class="fas fa-check-circle mr-1"></i>No signup required</span><span><i class="fas fa-calendar-alt mr-1"></i>IRS due dates</span><span><i class="fas fa-bolt mr-1"></i>Instant results</span></div>
+            <a href="#calculator" class="mt-6 inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold">Start Calculating</a>
+        </div>
+    </section>
 
-<!-- CALCULATOR -->
-<section id="calculator" class="py-20 reveal">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="bg-white rounded-xl shadow-lg border p-8 mx-auto max-w-4xl">
+    <!-- Calculator -->
+    <section id="calculator" class="py-20 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow-lg border p-8 mx-auto max-w-4xl">
+                <h2 class="text-2xl font-bold text-center mb-6">Estimate Your Quarterly Tax Payments</h2>
 
-<h2 class="text-2xl font-bold text-center mb-6">Estimate Your Quarterly Tax Payments</h2>
+                <!-- Income -->
+                <div class="mb-6">
+                    <label class="block font-medium mb-2">Expected Annual 1099 Income</label>
+                    <div class="flex gap-2 mb-4">
+                        <input id="qIncome" type="number" placeholder="Enter income" class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none" aria-label="Annual 1099 income">
+                        <button onclick="startVoiceIncome()" class="px-4 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition" title="Voice input" type="button"><i class="fas fa-microphone"></i></button>
+                    </div>
+                    <p id="voiceTxt" class="text-xs text-gray-500 mb-4"></p>
+                </div>
 
-<label class="block font-medium mb-2">Expected Annual 1099 Income</label>
-<div class="flex gap-2 mb-4">
-  <input id="qIncome" type="number" placeholder="Enter income" class="w-full border rounded-lg px-4 py-3">
-  <button onclick="startVoiceIncome()" class="px-4 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
-    <i class="fas fa-microphone"></i>
-  </button>
-</div>
-<p id="voiceTxt" class="text-xs text-gray-500 mb-4"></p>
+                <!-- Deductions -->
+                <div class="mb-6">
+                    <label class="block font-medium mb-2">Expected Deductible Expenses</label>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <input class="qDeduction border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" type="number" placeholder="Home office" aria-label="Home office expense">
+                        <input class="qDeduction border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" type="number" placeholder="Vehicle / mileage" aria-label="Vehicle expense">
+                        <input class="qDeduction border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" type="number" placeholder="Internet & phone" aria-label="Internet and phone">
+                        <input class="qDeduction border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" type="number" placeholder="Software & subscriptions" aria-label="Software subscriptions">
+                        <input class="qDeduction border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" type="number" placeholder="Marketing & ads" aria-label="Marketing expenses">
+                        <input class="qDeduction border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" type="number" placeholder="Equipment" aria-label="Equipment costs">
+                        <input class="qDeduction border rounded-lg px-3 py-2 md:col-span-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" type="number" placeholder="Other expenses" aria-label="Other expenses">
+                    </div>
+                </div>
 
-<label class="block font-medium mb-2">Expected Deductible Expenses</label>
-<div class="grid md:grid-cols-2 gap-3">
-  <input class="qDeduction border rounded-lg px-3 py-2" placeholder="Home office">
-  <input class="qDeduction border rounded-lg px-3 py-2" placeholder="Vehicle / mileage">
-  <input class="qDeduction border rounded-lg px-3 py-2" placeholder="Internet & phone">
-  <input class="qDeduction border rounded-lg px-3 py-2" placeholder="Software & subscriptions">
-  <input class="qDeduction border rounded-lg px-3 py-2" placeholder="Marketing & ads">
-  <input class="qDeduction border rounded-lg px-3 py-2" placeholder="Equipment">
-  <input class="qDeduction border rounded-lg px-3 py-2 md:col-span-2" placeholder="Other expenses">
-</div>
+                <!-- State -->
+                <div class="mb-6">
+                    <label class="block font-medium mb-2">Select Your State</label>
+                    <select id="qState" class="w-full border rounded-lg px-4 py-3 mb-6 focus:ring-2 focus:ring-blue-500 focus:outline-none" aria-label="Select state"></select>
+                </div>
 
-<label class="block font-medium mt-6 mb-2">Select Your State</label>
-<select id="qState" class="w-full border rounded-lg px-4 py-3 mb-6"></select>
+                <!-- Results -->
+                <div class="p-6 bg-blue-50 rounded-lg space-y-3 text-sm border-2 border-blue-100">
+                    <h3 class="font-bold text-lg mb-4 text-blue-900">Quarterly Tax Estimates</h3>
+                    <div class="flex justify-between"><span>Net Annual Taxable Income:</span><strong>$<span id="qNet">0</span></strong></div>
+                    <div class="flex justify-between"><span>Estimated Self-Employment Tax (15.3%):</span><strong>$<span id="qSE">0</span></strong></div>
+                    <div class="flex justify-between"><span>Estimated Federal Tax:</span><strong>$<span id="qFed">0</span></strong></div>
+                    <div class="flex justify-between"><span>Estimated State Tax:</span><strong>$<span id="qStateTax">0</span></strong></div>
+                    <div class="flex justify-between text-lg font-bold border-t-2 pt-3 mt-3 text-blue-900"><span>Total Annual Estimated Tax:</span><span>$<span id="qTotal">0</span></span></div>
+                </div>
 
-<div class="text-sm space-y-2 leading-relaxed">
-  <div>Net Annual Taxable Income: <strong>$<span id="qNet">0</span></strong></div>
-  <div>Estimated Self-Employment Tax (15.3%): <strong>$<span id="qSE">0</span></strong></div>
-  <div>Estimated Federal Tax: <strong>$<span id="qFed">0</span></strong></div>
-  <div>Estimated State Tax: <strong>$<span id="qStateTax">0</span></strong></div>
-  <div class="text-lg font-bold border-t pt-3">Total Annual Estimated Tax: $<span id="qTotal">0</span></div>
-</div>
+                <p class="mt-4 text-xs text-gray-500 text-center">✓ No signup required • ✓ Privacy protected • ✓ Calculations run in your browser</p>
 
-<div class="mt-6 flex justify-between flex-wrap gap-3">
-  <button onclick="copyResults()" class="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold"><i class="fas fa-copy mr-2"></i>Copy Summary</button>
-  <button onclick="shareResults()" class="px-5 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold"><i class="fas fa-share-alt mr-2"></i>Share</button>
-</div>
+                <div class="mt-6 flex justify-between flex-wrap gap-3">
+                    <button onclick="copyResults()" class="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition"><i class="fas fa-copy mr-2"></i>Copy Summary</button>
+                    <button onclick="shareResults()" class="px-5 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition"><i class="fas fa-share-alt mr-2"></i>Share</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
-</div>
-</section>
+    <!-- Quarterly Breakdown -->
+    <section class="py-20 bg-gray-50 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-center mb-6">Quarterly Payment Breakdown</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center max-w-4xl mx-auto">
+                <div class="p-6 border rounded-xl shadow-sm"><div class="text-sm text-gray-600 mb-1">April 15</div><div class="text-lg font-bold text-blue-700">2025</div><div class="mt-3 text-2xl font-bold text-gray-800">$<span class="qPay">0</span></div></div>
+                <div class="p-6 border rounded-xl shadow-sm"><div class="text-sm text-gray-600 mb-1">June 15</div><div class="text-lg font-bold text-blue-700">2025</div><div class="mt-3 text-2xl font-bold text-gray-800">$<span class="qPay">0</span></div></div>
+                <div class="p-6 border rounded-xl shadow-sm"><div class="text-sm text-gray-600 mb-1">September 15</div><div class="text-lg font-bold text-blue-700">2025</div><div class="mt-3 text-2xl font-bold text-gray-800">$<span class="qPay">0</span></div></div>
+                <div class="p-6 border rounded-xl shadow-sm"><div class="text-sm text-gray-600 mb-1">January 15</div><div class="text-lg font-bold text-blue-700">2026</div><div class="mt-3 text-2xl font-bold text-gray-800">$<span class="qPay">0</span></div></div>
+            </div>
+        </div>
+    </section>
 
-<!-- QUARTERLY BREAKDOWN -->
-<section class="py-20 bg-gray-50 reveal">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-2xl font-bold text-center mb-6">Quarterly Payment Breakdown</h2>
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center max-w-4xl mx-auto">
-  <div class="p-6 border rounded-xl shadow-sm">April 15<br><strong>$<span class="qPay">0</span></strong></div>
-  <div class="p-6 border rounded-xl shadow-sm">June 15<br><strong>$<span class="qPay">0</span></strong></div>
-  <div class="p-6 border rounded-xl shadow-sm">Sept 15<br><strong>$<span class="qPay">0</span></strong></div>
-  <div class="p-6 border rounded-xl shadow-sm">Jan 15<br><strong>$<span class="qPay">0</span></strong></div>
-</div>
-</div>
-</section>
+    <!-- FAQ -->
+    <section class="py-20 bg-white reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center"><h3 class="font-semibold">What is a quarterly tax payment?</h3><i class="fas fa-chevron-down text-gray-400 transition-transform"></i></div>
+                    <div class="accordion-content text-sm text-gray-600 mt-2">Quarterly tax payments are estimated taxes you pay four times a year if you are self-employed. Paying on time avoids IRS penalties and interest.</div>
+                </div>
+                <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center"><h3 class="font-semibold">How much should I pay each quarter?</h3><i class="fas fa-chevron-down text-gray-400 transition-transform"></i></div>
+                    <div class="accordion-content text-sm text-gray-600 mt-2">This calculator divides your total annual estimated tax into four equal payments based on IRS deadlines. Adjust for previous payments to stay accurate.</div>
+                </div>
+                <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center"><h3 class="font-semibold">What deductions can I include?</h3><i class="fas fa-chevron-down text-gray-400 transition-transform"></i></div>
+                    <div class="accordion-content text-sm text-gray-600 mt-2">Deductible expenses include home office, mileage, internet, software, marketing, equipment, and other business-related costs. Accurately including these reduces your taxable income.</div>
+                </div>
+                <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center"><h3 class="font-semibold">What happens if I miss a payment?</h3><i class="fas fa-chevron-down text-gray-400 transition-transform"></i></div>
+                    <div class="accordion-content text-sm text-gray-600 mt-2">Missing quarterly payments can result in penalties and interest. This calculator can help you estimate your late fees and adjust future payments.</div>
+                </div>
+                <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center"><h3 class="font-semibold">Does this replace a CPA?</h3><i class="fas fa-chevron-down text-gray-400 transition-transform"></i></div>
+                    <div class="accordion-content text-sm text-gray-600 mt-2">No. This tool is for estimation purposes only. Always consult a professional CPA for personalized tax advice.</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- EXPLAINER -->
-<section class="py-20 reveal">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl font-bold text-center mb-6">Why You Should Pay Quarterly Taxes</h2>
-<p class="max-w-4xl mx-auto text-gray-600 leading-relaxed text-center">
-Paying quarterly taxes helps you avoid penalties, manage cash flow, and stay compliant with the IRS. This calculator provides instant estimates based on your income, deductions, and state tax rates. Use this tool to plan your payments and reduce surprises at tax time.
-</p>
-</div>
-</section>
+    <!-- Disclaimer -->
+    <section class="py-10 bg-gray-800 text-gray-300 text-sm text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">This calculator is an estimate only and does not replace professional tax advice. Always consult a CPA for your individual situation.</div>
+    </section>
 
-<!-- FAQ -->
-<section class="py-20 bg-white reveal">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-900 text-gray-300 text-center">
+        <p>© 2025 Money Grow Tools — All Rights Reserved.</p>
+    </footer>
 
-<div class="max-w-3xl mx-auto space-y-4">
-  <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
-    <h3 class="font-semibold">What is a quarterly tax payment?</h3>
-    <div class="accordion-content text-sm text-gray-600 mt-2">
-      Quarterly tax payments are estimated taxes you pay four times a year if you are self-employed. Paying on time avoids IRS penalties and interest.
-    </div>
-  </div>
-  <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
-    <h3 class="font-semibold">How much should I pay each quarter?</h3>
-    <div class="accordion-content text-sm text-gray-600 mt-2">
-      This calculator divides your total annual estimated tax into four equal payments based on IRS deadlines. Adjust for previous payments to stay accurate.
-    </div>
-  </div>
-  <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
-    <h3 class="font-semibold">What deductions can I include?</h3>
-    <div class="accordion-content text-sm text-gray-600 mt-2">
-      Deductible expenses include home office, mileage, internet, software, marketing, equipment, and other business-related costs. Accurately including these reduces your taxable income.
-    </div>
-  </div>
-  <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
-    <h3 class="font-semibold">What happens if I miss a payment?</h3>
-    <div class="accordion-content text-sm text-gray-600 mt-2">
-      Missing quarterly payments can result in penalties and interest. This calculator can help you estimate your late fees and adjust future payments.
-    </div>
-  </div>
-  <div class="border rounded-xl p-5 cursor-pointer" onclick="toggleAccordion(this)">
-    <h3 class="font-semibold">Does this replace a CPA?</h3>
-    <div class="accordion-content text-sm text-gray-600 mt-2">
-      No. This tool is for estimation purposes only. Always consult a professional CPA for personalized tax advice.
-    </div>
-  </div>
-</div>
-</div>
-</section>
+    <script>
+        // Scroll reveal
+        document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)el.classList.add('active');});}).observe(el);});
 
-<!-- DISCLAIMER -->
-<section class="py-10 bg-gray-800 text-gray-300 text-sm text-center">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-This calculator is an estimate only and does not replace professional tax advice. Always consult a CPA for your individual situation.
-</div>
-</section>
+        // Accordion toggle
+        function toggleAccordion(el){
+            const content=el.querySelector('.accordion-content');
+            const icon=el.querySelector('i');
+            if(content.style.maxHeight){content.style.maxHeight=null;icon.classList.remove('fa-chevron-up');icon.classList.add('fa-chevron-down');}else{content.style.maxHeight=content.scrollHeight+'px';icon.classList.remove('fa-chevron-down');icon.classList.add('fa-chevron-up');}
+        }
 
-<!-- FOOTER -->
-<footer class="py-10 bg-gray-900 text-gray-300 text-center">
-<p>© 2025 Money Grow Tools — All Rights Reserved.</p>
-</footer>
+        // State tax rates 2025
+        const states={
+            "Alabama":5,"Alaska":0,"Arizona":4.5,"Arkansas":5.9,"California":9.3,"Colorado":4.4,"Connecticut":5,"Delaware":5.5,"Florida":0,"Georgia":5.75,"Hawaii":7,"Idaho":5.8,"Illinois":4.95,"Indiana":3.15,"Iowa":5.7,"Kansas":5.7,"Kentucky":4.5,"Louisiana":4.25,"Maine":7.15,"Maryland":5.75,"Massachusetts":5,"Michigan":4.25,"Minnesota":6.8,"Mississippi":5,"Missouri":4.95,"Montana":6.75,"Nebraska":5.8,"Nevada":0,"New Hampshire":0,"New Jersey":6.37,"New Mexico":5.9,"New York":6.5,"North Carolina":4.75,"North Dakota":2.9,"Ohio":3.99,"Oklahoma":4.75,"Oregon":8.75,"Pennsylvania":3.07,"Rhode Island":5.99,"South Carolina":6.4,"South Dakota":0,"Tennessee":0,"Texas":0,"Utah":4.65,"Vermont":6.6,"Virginia":5.75,"Washington":0,"West Virginia":6.5,"Wisconsin":5.3,"Wyoming":0
+        };
 
-<script>
-// Scroll reveal
-document.querySelectorAll('.reveal').forEach(el=>{
-  new IntersectionObserver(entries=>{
-    entries.forEach(entry => { if(entry.isIntersecting) el.classList.add('active'); });
-  }).observe(el);
-});
+        // Populate state dropdown
+        const qStateSelect=document.getElementById('qState');
+        Object.keys(states).sort().forEach(s=>{const o=document.createElement('option');o.textContent=s;qStateSelect.appendChild(o);});
 
-// Populate states
-const states={"Alabama":5,"Alaska":0,"Arizona":4.5,"Arkansas":5.9,"California":9.3,"Colorado":4.4,"Connecticut":5,"Delaware":5.5,"Florida":0,"Georgia":5.75,"Hawaii":7,"Idaho":5.8,"Illinois":4.95,"Indiana":3.15,"Iowa":5.7,"Kansas":5.7,"Kentucky":4.5,"Louisiana":4.25,"Maine":7.15,"Maryland":5.75,"Massachusetts":5,"Michigan":4.25,"Minnesota":6.8,"Mississippi":5,"Missouri":4.95,"Montana":6.75,"Nebraska":5.8,"Nevada":0,"New Hampshire":0,"New Jersey":6.37,"New Mexico":5.9,"New York":6.5,"North Carolina":4.75,"North Dakota":2.9,"Ohio":3.99,"Oklahoma":4.75,"Oregon":8.75,"Pennsylvania":3.07,"Rhode Island":5.99,"South Carolina":6.4,"South Dakota":0,"Tennessee":0,"Texas":0,"Utah":4.65,"Vermont":6.6,"Virginia":5.75,"Washington":0,"West Virginia":6.5,"Wisconsin":5.3,"Wyoming":0};
-const qStateSelect=document.getElementById('qState');
-Object.keys(states).forEach(s=>{let o=document.createElement('option');o.textContent=s;qStateSelect.appendChild(o);});
+        // Quarterly calculation
+        function calcQuarterly(){
+            let income=+document.getElementById('qIncome').value||0;
+            let deductions=0;document.querySelectorAll('.qDeduction').forEach(d=>deductions+=+d.value||0);
+            let net=Math.max(0,income-deductions);
+            let se=net*0.153,fed=net*0.12,st=net*(states[qStateSelect.value]/100),total=se+fed+st;
+            document.getElementById('qNet').textContent=net.toFixed(0);
+            document.getElementById('qSE').textContent=se.toFixed(0);
+            document.getElementById('qFed').textContent=fed.toFixed(0);
+            document.getElementById('qStateTax').textContent=st.toFixed(0);
+            document.getElementById('qTotal').textContent=total.toFixed(0);
+            document.querySelectorAll('.qPay').forEach(q=>q.textContent=(total/4).toFixed(0));
+        }
+        document.getElementById('qIncome').addEventListener('input',calcQuarterly);
+        qStateSelect.addEventListener('change',calcQuarterly);
+        document.querySelectorAll('.qDeduction').forEach(d=>d.addEventListener('input',calcQuarterly));
 
-// Quarterly calculation
-function calcQuarterly(){
-  let income=+document.getElementById('qIncome').value||0;
-  let deductions=0; document.querySelectorAll('.qDeduction').forEach(d=>deductions+=+d.value||0);
-  let net=Math.max(0,income-deductions);
-  let se=net*0.153, fed=net*0.12, st=net*(states[qStateSelect.value]/100), total=se+fed+st;
-  document.getElementById('qNet').textContent=net.toFixed(0);
-  document.getElementById('qSE').textContent=se.toFixed(0);
-  document.getElementById('qFed').textContent=fed.toFixed(0);
-  document.getElementById('qStateTax').textContent=st.toFixed(0);
-  document.getElementById('qTotal').textContent=total.toFixed(0);
-  document.querySelectorAll('.qPay').forEach(q=>q.textContent=(total/4).toFixed(0));
-}
-document.getElementById('qIncome').addEventListener('input',calcQuarterly);
-qStateSelect.addEventListener('change',calcQuarterly);
-document.querySelectorAll('.qDeduction').forEach(d=>d.addEventListener('input',calcQuarterly));
+        // Voice for income
+        function startVoiceIncome(){
+            if(!('webkitSpeechRecognition' in window))return;
+            const rec=new webkitSpeechRecognition();
+            const voiceTxt=document.getElementById('voiceTxt');
+            rec.onstart=()=>voiceTxt.textContent='Listening...';
+            rec.onresult=e=>{
+                const nums=e.results[0][0].transcript.match(/\d+/g);
+                if(nums){document.getElementById('qIncome').value=nums.join('');calcQuarterly();}
+                voiceTxt.textContent='';
+            };
+            rec.start();
+        }
 
-// Voice for income
-function startVoiceIncome(){
-  if(!('webkitSpeechRecognition' in window))return;
-  const rec=new webkitSpeechRecognition();
-  const voiceTxt=document.getElementById('voiceTxt');
-  rec.onstart=()=>voiceTxt.textContent='Listening...';
-  rec.onresult=e=>{
-    const nums=e.results[0][0].transcript.match(/\d+/g);
-    if(nums){document.getElementById('qIncome').value=nums.join(''); calcQuarterly();}
-    voiceTxt.textContent='';
-  };
-  rec.start();
-}
-
-// FAQ accordion
-function toggleAccordion(el){
-  const c=el.querySelector('.accordion-content');
-  c.style.maxHeight = c.style.maxHeight ? null : c.scrollHeight + 'px';
-}
-
-// Copy summary
-function copyResults(){
-  const text=`Net: $${document.getElementById('qNet').textContent}, SE: $${document.getElementById('qSE').textContent}, Fed: $${document.getElementById('qFed').textContent}, State: $${document.getElementById('qStateTax').textContent}, Total: $${document.getElementById('qTotal').textContent}`;
-  navigator.clipboard.writeText(text).then(()=>alert('Summary copied!'));
-}
-
-// Share results
-function shareResults(){
-  const text=`Check my quarterly tax estimate: Net $${document.getElementById('qNet').textContent}, Total Tax $${document.getElementById('qTotal').textContent}`;
-  if(navigator.share){navigator.share({title:'Quarterly Tax Calculator', text});}
-  else{alert('Share this: '+text);}
-}
-</script>
+        // Copy / share
+        function copyResults(){
+            const text=`Net: $${document.getElementById('qNet').textContent}, SE: $${document.getElementById('qSE').textContent}, Fed: $${document.getElementById('qFed').textContent}, State: $${document.getElementById('qStateTax').textContent}, Total: $${document.getElementById('qTotal').textContent}`;
+            navigator.clipboard.writeText(text).then(()=>alert('Summary copied!'));
+        }
+        function shareResults(){
+            const text=`Check my quarterly tax estimate: Net $${document.getElementById('qNet').textContent}, Total Tax $${document.getElementById('qTotal').textContent}`;
+            if(navigator.share){navigator.share({title:'Quarterly Tax Calculator',text});}else{alert('Share this: '+text);}
+        }
+    </script>
 
 </body>
 </html>
