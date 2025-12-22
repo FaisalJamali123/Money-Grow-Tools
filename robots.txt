@@ -1,9 +1,28 @@
+# robots.txt for moneygrowtools.com
+# This file controls search engine crawling
+
 User-agent: *
+Allow: /
+
+# Block common spam bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
 Allow: /
 
 # Sitemap location
 Sitemap: https://moneygrowtools.com/sitemap.xml
-
-# Disallow unnecessary files
-# Disallow: /admin/
-# Disallow: /private/
