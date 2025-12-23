@@ -129,6 +129,24 @@
     </script>
 
     <style>
+    .sr-only { position: absolute; width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;}
+    .sr-only:focus {
+    position: fixed;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
         *{font-family:'Inter',sans-serif}
         .hero-bg{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 100%)}
         .tool-card{transition:all .3s ease;border:1px solid #e2e8f0}
@@ -170,7 +188,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
         <a href="index.html" class="flex items-center space-x-2">
-    <img src="Money Grow Tools Logo.png"
+    <img src="money-grow-tools-logo.png"
          alt="Money Grow Tools Logo"
          width="40" height="40"
          class="w-10 h-10 object-contain">
